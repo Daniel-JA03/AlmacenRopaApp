@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Pantalla_De_Carga">
+
+    <!-- Animación Lottie centrada -->
+
+    <!-- Texto debajo de la animación -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacion_carga"
+        android:layout_width="407dp"
+        android:layout_height="443dp"
+        app:layout_constraintBottom_toTopOf="@+id/texto_cargando"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="cajaAlmacen.json"
+        app:lottie_loop="true" />
+
+    <TextView
+        android:id="@+id/texto_cargando"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/notoserif"
+        android:text="Cargando Almacén..."
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/animacion_carga" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

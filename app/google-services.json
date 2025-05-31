@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "58765898121",
+    "project_id": "almacenropaapp",
+    "storage_bucket": "almacenropaapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58765898121:android:7851b733bb24e6dee3b158",
+        "android_client_info": {
+          "package_name": "com.rafael0117.appgestionalmacen"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhkACD5YnbeLXAzFi-OxLJzgEX--bvWd0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

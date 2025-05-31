@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Almacen Ropa</string>
+
+    <!--MAIN ACTIVITY-->
+    <string name="Btn_Login">Login</string>
+    <string name="Btn_Registro">Registro</string>
+
+
+    <!--ACTIVITY REGISTRO-->
+    <string name="CrearCuentaTxt">Crear una cuenta</string>
+    <string name="NombreEt">Nombres</string>
+    <string name="CorreoEt">Correo Electronico</string>
+    <string name="ContraseñaEt">Contraseña</string>
+    <string name="ConfirmarContraseñaEt">Confirmar Contraseña</string>
+    <string name="RegistrarUsuario">Registrar</string>
+    <string name="TengounacuentaTXT">¿Ya tienes una cuenta? Inicia sesión</string>
+
+    <!--MENU PRINCIPAL-->
+    <string name="CerrarSesion">Salir</string>
+
+
+    <!--ACTIVITY LOGIN-->
+</resources>
