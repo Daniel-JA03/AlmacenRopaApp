@@ -25,8 +25,7 @@ class Pantalla_De_Carga : AppCompatActivity() {
 
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+            verificarUsuario()
         }, tiempo)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

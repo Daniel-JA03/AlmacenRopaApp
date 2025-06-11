@@ -13,6 +13,12 @@
         android:theme="@style/Theme.AppGestionAlmacen"
         tools:targetApi="31">
         <activity
+            android:name=".Agregar_Categoria.Agregar_Categoria"
+            android:exported="false" />
+        <activity
+            android:name=".Agregar_Producto.Agregar_Producto"
+            android:exported="false" />
+        <activity
             android:name=".MenuPrincipal"
             android:exported="false" />
         <activity

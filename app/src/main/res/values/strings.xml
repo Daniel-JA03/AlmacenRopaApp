@@ -20,4 +20,33 @@
 
 
     <!--ACTIVITY LOGIN-->
+    <string name="IniciarSesionTXT">Iniciar Sesión</string>
+    <string name="CorreoLogin">Correo electronico</string>
+    <string name="PassLogin">Contraseña</string>
+    <string name="BtnLogeo">Ingresar</string>
+    <string name="UsuarioNuevoTXT">¿No tienes una cuenta?.Registrate</string>
+
+    <!--MENU PRINCIPAL-->
+    <string name="BienvenidoPrincipal">Bienvenido(a)</string>
+    <string name="NombrePrincipal">--</string>
+    <string name="CorreoPrinciapl">--</string>
+    <string name="tvCategorias">Categorias</string>
+    <string name="tvInventario">Inventario</string>
+    <string name="tvProveedores">Proveedores</string>
+    <string name="tvLocalizacion">Localización</string>
+
+    <!--AGREGAR CATEGORIAS-->
+    <string name="id_categoria">ID de la Categoría</string>
+    <string name="nombre_categoria">Nombre de la Categoría</string>
+    <string name="descripcion_categoria">Descripción de la Categoría</string>
+    <string name="estado_categoria">Estado de la Categoría</string> <!-- activo / inactivo -->
+    <!--AGREGAR PROVEEDORES -->
+    <string name="id_proveedor">ID del Proveedor</string>
+    <string name="nombre_proveedor">Nombre del Proveedor</string>
+    <string name="ruc_proveedor">RUC del Proveedor</string>
+    <string name="direccion_proveedor">Dirección del Proveedor</string>
+    <string name="telefono_proveedor">Teléfono del Proveedor</string>
+    <string name="email_proveedor">Correo del Proveedor</string>
+    <string name="estado_proveedor">Estado del Proveedor</string> <!-- activo / inactivo -->
+
 </resources>

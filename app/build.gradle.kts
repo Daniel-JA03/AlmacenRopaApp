@@ -8,6 +8,7 @@ plugins {
 android {
     namespace = "com.rafael0117.appgestionalmacen"
     compileSdk = 35
+    buildToolsVersion ="35.0.0"
 
     defaultConfig {
         applicationId = "com.rafael0117.appgestionalmacen"
