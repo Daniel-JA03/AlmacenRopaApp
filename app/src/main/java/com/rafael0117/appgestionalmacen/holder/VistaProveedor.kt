@@ -1,6 +1,7 @@
 package com.rafael0117.appgestionalmacen.holder
 
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.rafael0117.appgestionalmacen.R
@@ -14,6 +15,7 @@ class VistaProveedor(vista: View): RecyclerView.ViewHolder(vista) {
     var tvDireccion:TextView
     var tvContacto:TextView
     var tvEstado:TextView
+    var btnMensaje:Button
 
 
     init {
@@ -25,6 +27,7 @@ class VistaProveedor(vista: View): RecyclerView.ViewHolder(vista) {
         tvDireccion=vista.findViewById(R.id.tvDireccionP)
         tvContacto=vista.findViewById(R.id.tvContactoP)
         tvEstado=vista.findViewById(R.id.tvEstadoP)
+        btnMensaje=vista.findViewById(R.id.btnMensaje)
 
 
 

@@ -24,6 +24,8 @@ class Proveedores : AppCompatActivity() {
     private lateinit var rbTodas: RadioButton
     private lateinit var rbActivas: RadioButton
     private lateinit var rbDesactivadas: RadioButton
+    private lateinit var btnMensaje: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +51,7 @@ class Proveedores : AppCompatActivity() {
         rbTodas = findViewById(R.id.rbTodosProveedores)
         rbActivas = findViewById(R.id.rbActivosProveedores)
         rbDesactivadas = findViewById(R.id.rbInactivosProveedores)
+
 
         fabAgregarProveedor.setOnClickListener {
             startActivity(Intent(this, NuevoProveedor::class.java))
