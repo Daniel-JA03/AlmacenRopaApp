@@ -6,7 +6,7 @@
     android:background="#F0F0F0">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardViewProveedor"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="12dp"
@@ -26,54 +26,81 @@
             android:orientation="vertical"
             android:padding="12dp">
 
-            <!-- Fila: Código y Categoría -->
+            <!-- Código y Nombre -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="start">
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvCodigoC"
+                    android:id="@+id/tvCodigoP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cód: 001"
+                    android:text="Código: 001"
                     android:textColor="#444444"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:layout_marginEnd="16dp" />
 
                 <TextView
-                    android:id="@+id/tvNombreC"
+                    android:id="@+id/tvNombreP"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Medicamentos"
+                    android:layout_weight="1"
+                    android:text="Distribuidora Medifarma"
                     android:textColor="#222222"
                     android:textSize="15sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- Descripción -->
+            <!-- Teléfono y Correo -->
             <TextView
-                android:id="@+id/tvDescripcionC"
+                android:id="@+id/tvTelefonoP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Medicamentos comunes para diversas enfermedades."
-                android:textColor="#666666"
+                android:text="Teléfono: (01) 2345678"
+                android:textColor="#555555"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tvCorreoP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Correo: ventas@medifarma.pe"
+                android:textColor="#555555"
                 android:textSize="13sp" />
+
+            <!-- Dirección -->
+            <TextView
+                android:id="@+id/tvDireccionP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dirección: Av. Arequipa 1234, Lima"
+                android:textColor="#555555"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp" />
+
+            <!-- Contacto -->
+            <TextView
+                android:id="@+id/tvContactoP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contacto: Sr. Luis Gómez"
+                android:textColor="#555555"
+                android:textSize="13sp"
+                android:layout_marginTop="2dp" />
 
             <!-- Estado -->
             <TextView
-                android:id="@+id/tvEstadoC"
+                android:id="@+id/tvEstadoP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
                 android:text="Estado: Activo"
                 android:textColor="#007E33"
                 android:textSize="13sp"
-                android:textStyle="italic" />
+                android:textStyle="italic"
+                android:layout_marginTop="6dp" />
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>

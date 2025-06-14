@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
@@ -20,6 +21,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
+
+
 class MenuPrincipal : AppCompatActivity() {
 
     private lateinit var tvNombres:TextView
@@ -28,6 +31,10 @@ class MenuPrincipal : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseUser: FirebaseUser
     private lateinit var progressBar: ProgressBar
+    private lateinit var cdCategorias: CardView
+    private lateinit var cdInventario: CardView
+    private lateinit var cdProveedores: CardView
+    private lateinit var cdLocalizacion: CardView
 
     private lateinit var Usuarios:DatabaseReference
 
@@ -41,8 +48,16 @@ class MenuPrincipal : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
         val actionBar = supportActionBar
         actionBar?.title="Almacen Ropa"
+
+
+        cdCategorias=findViewById(R.id.cdCategorias)
+        cdInventario=findViewById(R.id.cdInventario)
+        cdProveedores=findViewById(R.id.cdProveedores)
+        cdLocalizacion=findViewById(R.id.cdLocalizacion)
 
         btnCerrarSesion=findViewById(R.id.CerrarSesion)
         tvNombres=findViewById(R.id.NombrePrincipal)
@@ -52,11 +67,26 @@ class MenuPrincipal : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseUser = firebaseAuth.currentUser!!
 
+        cdCategorias.setOnClickListener(){
+            startActivity(Intent(this,Categorias::class.java))
+        }
+        cdInventario.setOnClickListener(){
+            startActivity(Intent(this,Proveedores::class.java))
+        }
+
+        cdProveedores.setOnClickListener(){
+            startActivity(Intent(this,Proveedores::class.java))
+        }
+        cdProveedores.setOnClickListener(){
+            startActivity(Intent(this,Proveedores::class.java))
+        }
+
 
         btnCerrarSesion.setOnClickListener(){
             salirAplicacion()
 
         }
+
     }
 
     override fun onStart() {

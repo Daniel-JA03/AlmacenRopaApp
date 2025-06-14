@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.rafael0117.appgestionalmacen">
 
     <application
+        android:name=".utils.appConfig"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,19 +15,17 @@
         android:theme="@style/Theme.AppGestionAlmacen"
         tools:targetApi="31">
         <activity
-            android:name=".Agregar_Categoria.Agregar_Categoria"
+            android:name=".Email"
             android:exported="false" />
         <activity
-            android:name=".Agregar_Producto.Agregar_Producto"
+            android:name=".NuevoProveedor"
             android:exported="false" />
         <activity
-            android:name=".MenuPrincipal"
-            android:exported="false" />
+            android:name=".Proveedores"
+            android:exported="false"
+            android:theme="@style/Theme.AppGestionAlmacen" />
         <activity
-            android:name=".Registro"
-            android:exported="false" />
-        <activity
-            android:name=".Login"
+            android:name=".NuevaCategoria"
             android:exported="false" />
         <activity
             android:name=".Pantalla_De_Carga"
@@ -38,13 +38,19 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
+        <activity
+            android:name=".MenuPrincipal"
+            android:exported="false" />
+        <activity
+            android:name=".Registro"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".Categorias"
+            android:exported="false" />
     </application>
 
 </manifest>

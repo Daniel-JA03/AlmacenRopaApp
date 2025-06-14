@@ -5,5 +5,7 @@ class Proveedor( var codigo: Int,
                  var telefono: String,
                  var correo: String,
                  var direccion: String,
-                 var contacto: String) {
+                 var contacto: String,
+                 var estado:Int
+) {
 }

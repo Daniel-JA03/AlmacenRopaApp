@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#FFFFFF"
+tools:context=".Email"
+android:padding="24dp">
+
+<TextView
+    android:id="@+id/tvTitulo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Enviar Correo"
+    android:textSize="24sp"
+    android:textStyle="bold"
+    android:textColor="#333"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginBottom="24dp"/>
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/layoutCorreo"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Enviar a:"
+    app:layout_constraintTop_toBottomOf="@id/tvTitulo"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/caja_correo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress" />
+</com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/layoutAsunto"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Asunto:"
+    app:layout_constraintTop_toBottomOf="@id/layoutCorreo"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="16dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/caja_asunto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+</com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/layoutMensaje"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:hint="Mensaje:"
+    app:layout_constraintTop_toBottomOf="@id/layoutAsunto"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginTop="16dp">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/caja_mensaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:minLines="3"/>
+</com.google.android.material.textfield.TextInputLayout>
+
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/btn_enviar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="ENVIAR"
+    android:textAllCaps="false"
+    android:layout_marginTop="24dp"
+    app:cornerRadius="12dp"
+    app:backgroundTint="#03A9F4"
+    app:layout_constraintTop_toBottomOf="@id/layoutMensaje"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

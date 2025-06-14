@@ -9,11 +9,14 @@ class VistaCategoria(vista:View):RecyclerView.ViewHolder(vista) {
     var tvCodigo:TextView
     var tvNombre:TextView
     var tvDescripcion:TextView
+    var tvEstado:TextView
 
     init {
         tvCodigo=vista.findViewById(R.id.tvCodigoC)
         tvNombre=vista.findViewById(R.id.tvNombreC)
         tvDescripcion=vista.findViewById(R.id.tvDescripcionC)
+        tvEstado=vista.findViewById(R.id.tvEstadoC)
+
 
     }
 
