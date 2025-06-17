@@ -137,4 +137,9 @@ class MenuPrincipal : AppCompatActivity() {
         startActivity(Intent(this,MainActivity::class.java))
         Toast.makeText(this,"Cerraste Sesion Exitosamente",Toast.LENGTH_SHORT).show()
     }
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity() // Cierra todas las actividades de la pila
+    }
+
 }
