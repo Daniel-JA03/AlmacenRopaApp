@@ -70,6 +70,31 @@ class InitBD: SQLiteOpenHelper(appConfig.CONTEXT,appConfig.BD_NAME,null,
                     "FOREIGN KEY (proveedor_codigo) REFERENCES tb_proveedor(codigo)" +
                     ")"
         )
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Camisa Casual Hombre', 'Camisa de algodón manga larga', 1, 'H&M', 'CSH2024', 1, 45.50, 75.90, 100, 10, 'Estante A1', '2024-06-01', 'Activo', 'https://ejemplo.com/img/camisa1.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Pantalón Jeans Mujer', 'Jeans ajustado azul oscuro', 2, 'Levi''s', 'WJ305', 2, 60.00, 99.90, 50, 5, 'Estante B3', '2024-06-05', 'Activo', 'https://ejemplo.com/img/jeans1.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Camisa Blanca Formal', 'Ideal para oficina o eventos', 1, 'Zara', 'CWB450', 3, 52.75, 89.99, 80, 15, 'Estante A2', '2024-06-08', 'Activo', 'https://ejemplo.com/img/camisa_blanca.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Pantalón Chino Hombre', 'Pantalón casual beige', 2, 'Uniqlo', 'PCH780', 1, 40.00, 65.00, 60, 8, 'Estante B1', '2024-06-10', 'Activo', 'https://ejemplo.com/img/chino1.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Camisa Flanelada', 'Camisa a cuadros de invierno', 1, 'Old Navy', 'FLA2024', 2, 55.00, 85.00, 40, 5, 'Estante A4', '2024-06-12', 'Desactivado', 'https://ejemplo.com/img/flanelada.jpg')"
+        )
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

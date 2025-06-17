@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:id="@+id/main"
+android:layout_height="wrap_content"
+android:fillViewport="true"
+tools:context=".DetalleProducto"
+android:padding="16dp">
+
+<com.google.android.material.card.MaterialCardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="6dp"
+    android:padding="16dp"
+    app:cardCornerRadius="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:divider="?android:attr/dividerHorizontal"
+        android:showDividers="middle"
+        android:dividerPadding="8dp">
+
+        <ImageView
+            android:id="@+id/imgProducto"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Imagen del producto"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre del Producto"
+            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+            android:textColor="?android:attr/textColorPrimary"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Código -->
+        <TextView
+            android:id="@+id/tvCodigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Código:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/tvDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Descripción:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+        <!-- Categoría -->
+        <TextView
+            android:id="@+id/tvCategoria"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoría:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+        <!-- Marca -->
+        <TextView
+            android:id="@+id/tvMarca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marca:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+        <!-- Modelo -->
+        <TextView
+            android:id="@+id/tvModelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modelo:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+        <!-- Proveedor -->
+        <TextView
+            android:id="@+id/tvProveedor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proveedor:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+        <!-- Precio Compra -->
+        <TextView
+            android:id="@+id/tvPrecioCompra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio de Compra:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+        <!-- Precio Venta -->
+        <TextView
+            android:id="@+id/tvPrecioVenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio de Venta:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+        <!-- Stock Actual -->
+        <TextView
+            android:id="@+id/tvStockActual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stock Actual:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+        <!-- Stock Mínimo -->
+        <TextView
+            android:id="@+id/tvStockMinimo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stock Mínimo:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+        <!-- Ubicación -->
+        <TextView
+            android:id="@+id/tvUbicacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ubicación:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+        <!-- Fecha Ingreso -->
+        <TextView
+            android:id="@+id/tvFechaIngreso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha de Ingreso:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+        <!-- Estado -->
+        <TextView
+            android:id="@+id/tvEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado:"
+            android:textAppearance="?attr/textAppearanceBodyMedium"/>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
+</ScrollView>

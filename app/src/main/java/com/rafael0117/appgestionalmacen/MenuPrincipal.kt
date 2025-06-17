@@ -71,7 +71,7 @@ class MenuPrincipal : AppCompatActivity() {
             startActivity(Intent(this,Categorias::class.java))
         }
         cdInventario.setOnClickListener(){
-            startActivity(Intent(this,Proveedores::class.java))
+            startActivity(Intent(this,InventarioProducto::class.java))
         }
 
         cdProveedores.setOnClickListener(){

@@ -15,6 +15,12 @@
         android:theme="@style/Theme.AppGestionAlmacen"
         tools:targetApi="31">
         <activity
+            android:name=".DetalleProducto"
+            android:exported="false" />
+        <activity
+            android:name=".InventarioProducto"
+            android:exported="false" />
+        <activity
             android:name=".Email"
             android:exported="false" />
         <activity
