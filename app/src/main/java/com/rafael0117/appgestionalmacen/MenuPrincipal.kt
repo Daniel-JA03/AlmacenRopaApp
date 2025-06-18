@@ -81,6 +81,10 @@ class MenuPrincipal : AppCompatActivity() {
             startActivity(Intent(this,Proveedores::class.java))
         }
 
+        cdLocalizacion.setOnClickListener() {
+            startActivity(Intent(this, Sedes::class.java))
+        }
+
 
         btnCerrarSesion.setOnClickListener(){
             salirAplicacion()
