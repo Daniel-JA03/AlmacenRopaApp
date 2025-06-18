@@ -95,11 +95,26 @@ class InitBD: SQLiteOpenHelper(appConfig.CONTEXT,appConfig.BD_NAME,null,
                     "VALUES ('Camisa Flanelada', 'Camisa a cuadros de invierno', 1, 'Old Navy', 'FLA2024', 2, 55.00, 85.00, 40, 5, 'Estante A4', '2024-06-12', 'Desactivado', 'https://ejemplo.com/img/flanelada.jpg')"
         )
 
+        // Tabla localizacion (sedes)
+        db.execSQL(
+            "create table tb_sedes" +
+                    "(" +
+                    "codigo integer primary key autoincrement," +
+                    "foto VARCHAR(200), " +
+                    "nomDis varchar(30)," +
+                    "canSedes INTEGER," +
+                    "estado INTEGER" +
+                    ")"
+        )
+        db.execSQL(
+            "INSERT INTO tb_sedes values(null, 'localizacion_sedes', 'Los Olivos', 2, 1)"
+        )
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.execSQL("DROP TABLE IF EXISTS tb_categoria")
         db.execSQL("DROP TABLE IF EXISTS tb_proveedor")
+        db.execSQL("DROP TABLE IF EXISTS tb_sedes")
 
         // Agrega otras tablas si las tienes
         onCreate(db)
