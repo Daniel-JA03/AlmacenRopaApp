@@ -78,7 +78,8 @@ class Sedes : AppCompatActivity() {
             else -> -1 // Todos los item
         }
 
-        val todas = SedeController().findAll()
+        //val todas = SedeController().findAll()
+        val todas = SedeController().findAllConCant()
 
 
         val filtradas = todas.filter {

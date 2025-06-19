@@ -102,13 +102,37 @@ class InitBD: SQLiteOpenHelper(appConfig.CONTEXT,appConfig.BD_NAME,null,
                     "codigo integer primary key autoincrement," +
                     "foto VARCHAR(200), " +
                     "nomDis varchar(30)," +
-                    "canSedes INTEGER," +
                     "estado INTEGER" +
                     ")"
         )
         db.execSQL(
-            "INSERT INTO tb_sedes values(null, 'localizacion_sedes', 'Los Olivos', 2, 1)"
+            "INSERT INTO tb_sedes values(null, 'localizacion_sedes', 'Los Olivos',  1)"
         )
+
+
+        // tabla ubicacion
+        db.execSQL(
+            "create table tb_ubicacion" +
+                    "(" +
+                    "codigo integer primary key autoincrement," +
+                    "sede_codigo INTEGER, " +
+                    "latitud DOUBLE," +
+                    "longitud DOUBLE," +
+                    "descripcion varchar(80), " +
+                    "FOREIGN KEY (sede_codigo) REFERENCES tb_sedes(codigo) " +
+                    ")"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 1, -12.0063303, -77.0831586, 'Sucursal A - Los Olivos')"
+        )
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 1, -12.0078200, -77.0811000, 'Sucursal B - Los Olivos')"
+        )
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 1, -11.999359, -77.054082, 'Sucursal C - Los Olivos')"
+        )
+
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
