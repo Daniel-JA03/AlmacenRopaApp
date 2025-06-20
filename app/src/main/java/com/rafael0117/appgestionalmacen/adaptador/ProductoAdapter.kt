@@ -3,6 +3,7 @@ package com.rafael0117.appgestionalmacen.adaptador
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.rafael0117.appgestionalmacen.DetalleProducto
 import com.rafael0117.appgestionalmacen.Email
@@ -27,6 +28,13 @@ class ProductoAdapter (var lista:ArrayList<Producto>):RecyclerView.Adapter<Vista
         holder.tvNombre.text = producto.nombre
         holder.tvDescripcion.text = producto.descripcion
         holder.tvEstado.text = if (producto.estado == 1) "Activo" else "Desactivado"
+        holder.tvEstado.setTextColor(
+            ContextCompat.getColor(
+                holder.itemView.context,
+                if (producto.estado == 1) android.R.color.holo_green_dark else android.R.color.holo_red_dark
+            )
+        )
+
         holder.btnVerMas.setOnClickListener {
             val context = holder.itemView.context
             val intent = Intent(context, DetalleProducto::class.java).apply {
