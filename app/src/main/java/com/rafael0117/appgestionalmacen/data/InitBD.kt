@@ -95,12 +95,81 @@ class InitBD: SQLiteOpenHelper(appConfig.CONTEXT,appConfig.BD_NAME,null,
                     "VALUES ('Camisa Flanelada', 'Camisa a cuadros de invierno', 1, 'Old Navy', 'FLA2024', 2, 55.00, 85.00, 40, 5, 'Estante A4', '2024-06-12', 'Desactivado', 'https://ejemplo.com/img/flanelada.jpg')"
         )
 
+        // Tabla localizacion (sedes)
+        db.execSQL(
+            "create table tb_sedes" +
+                    "(" +
+                    "codigo integer primary key autoincrement," +
+                    "foto VARCHAR(200), " +
+                    "nomDis varchar(30)," +
+                    "estado INTEGER" +
+                    ")"
+        )
+        db.execSQL(
+            "INSERT INTO tb_sedes values(null, 'localizacion_sedes', 'Los Olivos',  1)"
+        )
+
+
+        // tabla ubicacion
+        db.execSQL(
+            "create table tb_ubicacion" +
+                    "(" +
+                    "codigo integer primary key autoincrement," +
+                    "sede_codigo INTEGER, " +
+                    "latitud DOUBLE," +
+                    "longitud DOUBLE," +
+                    "descripcion varchar(80), " +
+                    "FOREIGN KEY (sede_codigo) REFERENCES tb_sedes(codigo) " +
+                    ")"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 1, -12.0063303, -77.0831586, 'Sucursal A - Los Olivos')"
+        )
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 1, -12.0078200, -77.0811000, 'Sucursal B - Los Olivos')"
+        )
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 1, -11.999359, -77.054082, 'Sucursal C - Los Olivos')"
+        )
+
+        //  Tabla Entrada
+        db.execSQL(
+            "CREATE TABLE tb_entrada (" +
+                    "codigo INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "proveedor_codigo INTEGER, " +           // FK a proveedor
+                    "fecha_ingreso VARCHAR(20), " +          // formato: yyyy-MM-dd
+                    "FOREIGN KEY (proveedor_codigo) REFERENCES tb_proveedor(codigo)" +
+                    ")"
+        )
+        // Ingresar entrada
+        db.execSQL("INSERT INTO tb_entrada (proveedor_codigo, fecha_ingreso) VALUES (1, '2025-06-19')"
+        )
+
+        // Tabla DetalleEntrada
+
+        db.execSQL(
+            "CREATE TABLE tb_detalle_entrada (" +
+                    "codigo INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "entrada_codigo INTEGER, " +             // FK a entrada
+                    "producto_codigo INTEGER, " +            // FK a producto
+                    "cantidad INTEGER NOT NULL, " +
+                    "FOREIGN KEY (entrada_codigo) REFERENCES tb_entrada(codigo), " +
+                    "FOREIGN KEY (producto_codigo) REFERENCES tb_producto(codigo)" +
+                    ")"
+        )
+        // Ingresar detalle
+
+        db.execSQL("INSERT INTO tb_detalle_entrada (entrada_codigo, producto_codigo, cantidad)VALUES (1, 1, 30),(1, 3, 20)"
+        )
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         db.execSQL("DROP TABLE IF EXISTS tb_categoria")
         db.execSQL("DROP TABLE IF EXISTS tb_proveedor")
-
+        db.execSQL("DROP TABLE IF EXISTS tb_sedes")
+        db.execSQL("DROP TABLE IF EXISTS tb_entrada")
+        db.execSQL("DROP TABLE IF EXISTS tb_detalle_entrada")
         // Agrega otras tablas si las tienes
         onCreate(db)
     }
