@@ -55,7 +55,7 @@ class Sedes : AppCompatActivity() {
 
         // listeners
         fabAgregarSede.setOnClickListener {
-            startActivity(Intent(this, null))
+            startActivity(Intent(this, NuevaSede::class.java))
         }
 
         btnBuscarPorId.setOnClickListener {
