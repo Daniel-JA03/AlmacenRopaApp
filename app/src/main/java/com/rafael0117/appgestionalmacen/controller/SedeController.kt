@@ -1,5 +1,6 @@
 package com.rafael0117.appgestionalmacen.controller
 
+import android.content.ContentValues
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import com.rafael0117.appgestionalmacen.entidad.Sede
@@ -25,6 +26,29 @@ class SedeController {
         return lista
     }
 
+    // Registrar nueva sede
+    fun registrarSede(bean: Sede): Int {
+        val db: SQLiteDatabase = appConfig.BD.writableDatabase
+        val values = ContentValues()
+        values.put("foto", bean.foto)
+        values.put("nomDis", bean.nomDis)
+        values.put("estado", bean.estado)
+        return db.insert("tb_sedes", null, values).toInt()
+    }
+
+    // Registrar nueva ubicacion
+    fun registrarUbicacion(sedeCodigo: Int, latitud: Double, longitud: Double, descripcion: String) {
+        val db: SQLiteDatabase = appConfig.BD.writableDatabase
+        val values = ContentValues()
+        values.put("sede_codigo", sedeCodigo)
+        values.put("latitud", latitud)
+        values.put("longitud", longitud)
+        values.put("descripcion", descripcion)
+
+        db.insert("tb_ubicacion", null, values)
+    }
+
+    // Obtener ubicaciones por sede
     fun obtenerUbicacionesPorSede(sedeCodigo: Int): ArrayList<Ubicacion> {
         val lista = ArrayList<Ubicacion>()
         val db: SQLiteDatabase = appConfig.BD.readableDatabase
@@ -43,6 +67,7 @@ class SedeController {
         return lista
     }
 
+    // Obtener sedes con cantidad de ubicaciones
     fun findAllConCant(): ArrayList<SedeConCant> {
         val lista = ArrayList<SedeConCant>()
         val db = appConfig.BD.readableDatabase

@@ -15,6 +15,9 @@
         android:theme="@style/Theme.AppGestionAlmacen"
         tools:targetApi="31">
         <activity
+            android:name=".NuevaSede"
+            android:exported="false" />
+        <activity
             android:name=".Entrada"
             android:exported="false" />
         <activity

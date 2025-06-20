@@ -54,5 +54,11 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <!--AGREGAR SEDE-->
+    <string name="labelDistrito">Ingresar nombre del Distrito</string>
+    <string name="labelLatitud">Ingresar Latitud</string>
+    <string name="labelLongitud">Ingresar Longitud</string>
+    <string name="labelDescripcion">Ingresar Descripción</string>
+    <string name="labelCodigoSede">Ingrese Codigo De Sede Existente</string>
 
 </resources>
