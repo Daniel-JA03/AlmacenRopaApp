@@ -26,22 +26,17 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            app:layout_constraintBottom_toTopOf="@+id/texto_cargando"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
             app:lottie_fileName="registro.json"
             app:lottie_loop="true" />
 
+        <!-- Campo: Nombre -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="@string/NombreEt"
             app:boxBackgroundMode="outline"
-
             app:boxCornerRadiusBottomEnd="12dp"
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
@@ -58,6 +53,7 @@
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Campo: Correo -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,6 +75,7 @@
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <!-- Campo: Contraseña -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -117,7 +114,6 @@
             app:endIconMode="password_toggle"
             app:startIconDrawable="@drawable/baseline_lock_24px">
 
-
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etConfirmarContraseña"
                 android:layout_width="match_parent"
@@ -128,6 +124,36 @@
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- Campo: Rol con RadioButtons -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selecciona un rol:"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupRoles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/rbVendedor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vendedor" />
+
+            <RadioButton
+                android:id="@+id/rbAdministrador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Administrador" />
+        </RadioGroup>
+
+        <!-- Botón Registrar -->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/RegistrarUsuario"
             android:layout_width="match_parent"
@@ -140,6 +166,7 @@
             app:cornerRadius="12dp"
             app:iconPadding="12dp" />
 
+        <!-- Texto ya tengo cuenta -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/TengounacuentaTXT"
             android:layout_width="wrap_content"
@@ -147,7 +174,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:clickable="true"
-
             android:focusable="true"
             android:text="@string/TengounacuentaTXT"
             android:textSize="14sp"
