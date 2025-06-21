@@ -110,20 +110,35 @@ class MenuPrincipal : AppCompatActivity() {
     private fun cargaDatos() {
         val uid = firebaseAuth.currentUser?.uid
         if (uid != null) {
-            Usuarios.child(uid).addValueEventListener(object : ValueEventListener {
+            Usuarios.child(uid).addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    //Si el usuario existe
-                    if(snapshot.exists()){
-                        progressBar.visibility=View.GONE
-                        tvNombres.visibility=View.VISIBLE
-                        tvCorreo.visibility=View.VISIBLE
-                        //Obtener los datos
-                        val nombre:String = ""+snapshot.child("Nombre").getValue()
-                        val correo:String = ""+snapshot.child("correo").getValue()
-                        tvNombres.setText(nombre)
-                        tvCorreo.setText(correo)
-                        }
+                    if (snapshot.exists()) {
+                        progressBar.visibility = View.GONE
+                        tvNombres.visibility = View.VISIBLE
+                        tvCorreo.visibility = View.VISIBLE
 
+                        val nombre: String = snapshot.child("Nombre").getValue(String::class.java) ?: ""
+                        val correo: String = snapshot.child("correo").getValue(String::class.java) ?: ""
+                        val rol: String = snapshot.child("rol").getValue(String::class.java) ?: ""
+
+                        tvNombres.text = nombre
+                        tvCorreo.text = correo
+
+                        // Lógica para mostrar u ocultar según el rol
+                        if (rol.equals("Administrador", ignoreCase = true)) {
+                            // Mostrar todo
+                            cdCategorias.visibility = View.VISIBLE
+                            cdInventario.visibility = View.VISIBLE
+                            cdProveedores.visibility = View.VISIBLE
+                            cdLocalizacion.visibility = View.VISIBLE
+                        } else if (rol.equals("Vendedor", ignoreCase = true)) {
+                            // Mostrar solo algunos
+                            cdCategorias.visibility = View.GONE
+                            cdInventario.visibility = View.VISIBLE
+                            cdProveedores.visibility = View.GONE
+                            cdLocalizacion.visibility = View.VISIBLE
+                        }
+                    }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
@@ -134,6 +149,7 @@ class MenuPrincipal : AppCompatActivity() {
             Toast.makeText(this, "Usuario no autenticado", Toast.LENGTH_SHORT).show()
         }
     }
+
 
 
     private fun salirAplicacion() {
