@@ -97,4 +97,38 @@ class SedeController {
         cursor.close()
         return lista
     }
+
+    // editar Sede
+    fun editarSede(bean: SedeConCant): Int {
+        val db = appConfig.BD.writableDatabase
+        val values = ContentValues()
+        values.put("foto", bean.foto)
+        values.put("nomDis", bean.nomDis)
+        values.put("estado", bean.estado)
+        return db.update("tb_sedes", values, "codigo = ?", arrayOf(bean.codigo.toString()))
+    }
+
+    // eliminar una ubicacion por su codigo
+    fun eliminarUbicacion(codigoUbicacion: Int): Int {
+        val db = appConfig.BD.writableDatabase
+        return db.delete("tb_ubicacion", "codigo = ?", arrayOf(codigoUbicacion.toString()))
+    }
+
+    // eliminar toda una sede (y sus ubicaciones)
+    fun eliminarSede(codigoSede: Int): Int {
+        val db = appConfig.BD.writableDatabase
+        // eliminar las ubicaciones asociadas
+        db.delete("tb_ubicacion", "sede_codigo = ?", arrayOf(codigoSede.toString()))
+        // eliminar la sede
+        return db.delete("tb_sedes", "codigo = ?", arrayOf(codigoSede.toString()))
+    }
+
+    fun editarUbicacion(codigo: Int, latitud: Double, longitud: Double, descripcion: String): Int {
+        val db = appConfig.BD.writableDatabase
+        val values = ContentValues()
+        values.put("latitud", latitud)
+        values.put("longitud", longitud)
+        values.put("descripcion", descripcion)
+        return db.update("tb_ubicacion", values, "codigo = ?", arrayOf(codigo.toString()))
+    }
 }

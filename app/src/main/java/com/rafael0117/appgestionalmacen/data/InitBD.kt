@@ -109,6 +109,26 @@ class InitBD: SQLiteOpenHelper(appConfig.CONTEXT,appConfig.BD_NAME,null,
             "INSERT INTO tb_sedes values(null, 'localizacion_sedes', 'Los Olivos',  1)"
         )
 
+        db.execSQL(
+            "INSERT INTO tb_sedes values(null, 'localizacion_sedes', 'Miraflores',  1)"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_sedes values(null, 'localizacion_sedes', 'Santiago de Surco',  1)"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_sedes values(null, 'localizacion_sedes', 'Comas',  1)"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_sedes values(null, 'localizacion_sedes', 'San Miguel',  1)"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_sedes values(null, 'localizacion_sedes', 'Independencia',  1)"
+        )
+
 
         // tabla ubicacion
         db.execSQL(
@@ -122,7 +142,7 @@ class InitBD: SQLiteOpenHelper(appConfig.CONTEXT,appConfig.BD_NAME,null,
                     "FOREIGN KEY (sede_codigo) REFERENCES tb_sedes(codigo) " +
                     ")"
         )
-
+        // Ubicaciones - Los Olivos
         db.execSQL(
             "INSERT INTO tb_ubicacion values(null, 1, -12.0063303, -77.0831586, 'Sucursal A - Los Olivos')"
         )
@@ -130,8 +150,52 @@ class InitBD: SQLiteOpenHelper(appConfig.CONTEXT,appConfig.BD_NAME,null,
             "INSERT INTO tb_ubicacion values(null, 1, -12.0078200, -77.0811000, 'Sucursal B - Los Olivos')"
         )
         db.execSQL(
-            "INSERT INTO tb_ubicacion values(null, 1, -11.999359, -77.054082, 'Sucursal C - Los Olivos')"
+            "INSERT INTO tb_ubicacion values(null, 1, -11.992568, -77.073012, 'Sucursal C - Los Olivos')"
         )
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 1, -11.962341, -77.078333, 'Sucursal D - Los Olivos')"
+        )
+
+        // Ubicaciones - Miraflores
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 2, -12.125799, -77.036627, 'Sucursal A - Miraflores')"
+        )
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 2, -12.123782, -77.012108, 'Sucursal B - Miraflores')"
+        )
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 2, -12.129775, -77.019694, 'Sucursal C - Miraflores')"
+        )
+
+        // Ubicaciones - Santiago de Surco
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 3, -12.145644, -77.002987, 'Sucursal A - Santiago de Surco')"
+        )
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 3, -12.092608, -76.970543, 'Sucursal B - Santiago de Surco')"
+        )
+
+        // Ubicaciones - Comas
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 4, -11.911032, -77.047821, 'Sucursal A - Comas')"
+        )
+
+        // Ubicaciones - San Miguel
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 5, -12.073500, -77.095145, 'Sucursal A - San Miguel')"
+        )
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 5, -12.063260, -77.083644, 'Sucursal B - San Miguel')"
+        )
+
+        // Ubicaciones - Independencia
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 6, -11.992270, -77.049117, 'Sucursal A - Independencia')"
+        )
+        db.execSQL(
+            "INSERT INTO tb_ubicacion values(null, 6, -11.976905, -77.051864, 'Sucursal B - Independencia')"
+        )
+
 
         //  Tabla Entrada
         db.execSQL(
@@ -165,11 +229,13 @@ class InitBD: SQLiteOpenHelper(appConfig.CONTEXT,appConfig.BD_NAME,null,
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        db.execSQL("DROP TABLE IF EXISTS tb_categoria")
-        db.execSQL("DROP TABLE IF EXISTS tb_proveedor")
-        db.execSQL("DROP TABLE IF EXISTS tb_sedes")
-        db.execSQL("DROP TABLE IF EXISTS tb_entrada")
         db.execSQL("DROP TABLE IF EXISTS tb_detalle_entrada")
+        db.execSQL("DROP TABLE IF EXISTS tb_entrada")
+        db.execSQL("DROP TABLE IF EXISTS tb_ubicacion")
+        db.execSQL("DROP TABLE IF EXISTS tb_sedes")
+        db.execSQL("DROP TABLE IF EXISTS tb_producto")
+        db.execSQL("DROP TABLE IF EXISTS tb_proveedor")
+        db.execSQL("DROP TABLE IF EXISTS tb_categoria")
         // Agrega otras tablas si las tienes
         onCreate(db)
     }
