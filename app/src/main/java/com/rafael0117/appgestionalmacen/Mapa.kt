@@ -24,6 +24,11 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mapa)
         createFragment()
+
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
     }
 
     private fun createFragment() {
@@ -48,6 +53,11 @@ class Mapa : AppCompatActivity(), OnMapReadyCallback {
             val center = LatLng(primera.latitud, primera.longitud)
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(center, 15f))
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
 }
