@@ -34,9 +34,12 @@ class NuevaSede : AppCompatActivity() {
             insets
         }
         supportActionBar?.apply {
+            title="Nueva Sede"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
+
+
 
         txtDistrito = findViewById(R.id.txtDistrito)
         txtLatitud = findViewById(R.id.txtLatitud)
