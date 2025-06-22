@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 
 class DetalleProducto : AppCompatActivity() {
 
@@ -36,6 +37,11 @@ class DetalleProducto : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        supportActionBar?.apply {
+            title="Detalle Producto"
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
 
         // Inicializar vistas
         tvCodigo = findViewById(R.id.tvCodigo)
@@ -59,10 +65,10 @@ class DetalleProducto : AppCompatActivity() {
         val codigo = intent.getIntExtra("codigo", 0)
         val nombre = intent.getStringExtra("nombre")
         val descripcion = intent.getStringExtra("descripcion")
-        val categoria = intent.getStringExtra("categoria")
+        val categoria = intent.getStringExtra("categoriaNombre")
         val marca = intent.getStringExtra("marca")
         val modelo = intent.getStringExtra("modelo")
-        val proveedor = intent.getStringExtra("proveedor")
+        val proveedor = intent.getStringExtra("proveedorNombre")
         val precioCompra = intent.getDoubleExtra("preciocompra", 0.0)
         val precioVenta = intent.getDoubleExtra("precioventa", 0.0)
         val stockActual = intent.getIntExtra("stockActual", 0)
@@ -90,14 +96,17 @@ class DetalleProducto : AppCompatActivity() {
 
         // Cargar imagen desde drawable por nombre (ej: "camisa01")
         if (!imagen.isNullOrEmpty()) {
-            val resourceId = resources.getIdentifier(imagen, "drawable", packageName)
-            if (resourceId != 0) {
-                imgProducto.setImageResource(resourceId)
-            } else {
-                imgProducto.setImageResource(R.drawable.baseline_image_24)
-            }
+            Glide.with(this)
+                .load(imagen) // asegúrate de que `imagen` sea una URL válida
+                .placeholder(R.drawable.baseline_image_24) // mientras carga
+                .error(R.drawable.baseline_broken_image_24) // si falla
+                .into(imgProducto)
         } else {
             imgProducto.setImageResource(R.drawable.baseline_image_24)
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }
