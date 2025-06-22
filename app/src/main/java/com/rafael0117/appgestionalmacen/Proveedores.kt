@@ -24,7 +24,7 @@ class Proveedores : AppCompatActivity() {
     private lateinit var rbTodas: RadioButton
     private lateinit var rbActivas: RadioButton
     private lateinit var rbDesactivadas: RadioButton
-    private lateinit var btnMensaje: Button
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
