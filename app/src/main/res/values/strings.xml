@@ -34,6 +34,7 @@
     <string name="tvInventario">Inventario</string>
     <string name="tvProveedores">Proveedores</string>
     <string name="tvLocalizacion">Localización</string>
+    <string name="tvAbastecimiento">Abastecimiento e Ingreso</string>
 
     <!--AGREGAR CATEGORIAS-->
     <string name="id_categoria">ID de la Categoría</string>

@@ -32,6 +32,10 @@ class InventarioProducto : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val actionBar = supportActionBar
+        actionBar?.title = "Inventario"
+        actionBar?.setDisplayHomeAsUpEnabled(true)
+        actionBar?.setDisplayShowHomeEnabled(true)
 
         edtBuscarProducto = findViewById(R.id.edtBuscarProducto)
         btnBuscarProducto = findViewById(R.id.btnBuscarProducto)
@@ -81,5 +85,9 @@ class InventarioProducto : AppCompatActivity() {
 
         rvInventarioProductos.adapter = ProductoAdapter(ArrayList(filtrados))
         rvInventarioProductos.layoutManager = LinearLayoutManager(this)
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

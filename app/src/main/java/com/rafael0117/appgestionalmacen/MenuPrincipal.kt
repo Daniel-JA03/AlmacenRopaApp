@@ -35,6 +35,7 @@ class MenuPrincipal : AppCompatActivity() {
     private lateinit var cdInventario: CardView
     private lateinit var cdProveedores: CardView
     private lateinit var cdLocalizacion: CardView
+    private lateinit var cdAbastecimiento: CardView
 
     private lateinit var Usuarios:DatabaseReference
 
@@ -58,6 +59,7 @@ class MenuPrincipal : AppCompatActivity() {
         cdInventario=findViewById(R.id.cdInventario)
         cdProveedores=findViewById(R.id.cdProveedores)
         cdLocalizacion=findViewById(R.id.cdLocalizacion)
+        cdAbastecimiento=findViewById(R.id.cdAbastecimiento)
 
         btnCerrarSesion=findViewById(R.id.CerrarSesion)
         tvNombres=findViewById(R.id.NombrePrincipal)
@@ -83,6 +85,9 @@ class MenuPrincipal : AppCompatActivity() {
 
         cdLocalizacion.setOnClickListener() {
             startActivity(Intent(this, Sedes::class.java))
+        }
+        cdAbastecimiento.setOnClickListener(){
+            startActivity(Intent(this,Productos::class.java))
         }
 
 
@@ -128,15 +133,19 @@ class MenuPrincipal : AppCompatActivity() {
                         if (rol.equals("Administrador", ignoreCase = true)) {
                             // Mostrar todo
                             cdCategorias.visibility = View.VISIBLE
-                            cdInventario.visibility = View.VISIBLE
+                            cdInventario.visibility = View.GONE
                             cdProveedores.visibility = View.VISIBLE
                             cdLocalizacion.visibility = View.VISIBLE
+                            cdAbastecimiento.visibility = View.VISIBLE
                         } else if (rol.equals("Vendedor", ignoreCase = true)) {
                             // Mostrar solo algunos
                             cdCategorias.visibility = View.GONE
                             cdInventario.visibility = View.VISIBLE
                             cdProveedores.visibility = View.GONE
                             cdLocalizacion.visibility = View.VISIBLE
+                            cdAbastecimiento.visibility = View.GONE
+
+
                         }
                     }
                 }
