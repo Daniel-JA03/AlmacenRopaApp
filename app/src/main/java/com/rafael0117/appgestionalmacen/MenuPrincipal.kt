@@ -79,9 +79,6 @@ class MenuPrincipal : AppCompatActivity() {
         cdProveedores.setOnClickListener(){
             startActivity(Intent(this,Proveedores::class.java))
         }
-        cdProveedores.setOnClickListener(){
-            startActivity(Intent(this,Proveedores::class.java))
-        }
 
         cdLocalizacion.setOnClickListener() {
             startActivity(Intent(this, Sedes::class.java))
