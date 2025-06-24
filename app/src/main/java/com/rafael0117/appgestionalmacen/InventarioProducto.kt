@@ -9,6 +9,7 @@ import android.os.Environment
 import android.util.Log
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.core.view.ViewCompat
@@ -16,6 +17,10 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.itextpdf.io.image.ImageDataFactory
 import com.itextpdf.kernel.colors.ColorConstants
 import com.itextpdf.kernel.colors.DeviceRgb
@@ -90,6 +95,18 @@ class InventarioProducto : AppCompatActivity() {
         }
 
         cargarProductos() // carga inicial
+
+        // Verificar alerta de stock mínimo
+        val productosCriticos = ProductoController().findProductosConStockMinimo()
+        if (productosCriticos.isNotEmpty()) {
+            obtenerCorreosDeVendedores { vendedores ->
+                if (vendedores.isNotEmpty()) {
+                    enviarAlertaPorCorreo(this, productosCriticos, vendedores.toTypedArray())
+                } else {
+                    Toast.makeText(this, "No hay vendedores registrados.", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     private fun cargarProductos() {
@@ -235,6 +252,126 @@ class InventarioProducto : AppCompatActivity() {
             e.printStackTrace()
             Toast.makeText(context, "Error al crear el PDF", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    // PDF Alerta de stock
+    private fun generarPDFdeAlertaStock(context: Context, productos: List<Producto>, outputFile: File) {
+        try {
+            val writer = PdfWriter(FileOutputStream(outputFile))
+            val pdfDoc = PdfDocument(writer, DocumentProperties())
+            val document = Document(pdfDoc)
+
+            // Título
+            document.add(
+                Paragraph("Alerta de Stock Mínimo")
+                    .setFontSize(18f)
+                    .setTextAlignment(TextAlignment.CENTER)
+                    .setBold()
+                    .setMarginBottom(20f)
+            )
+
+            // Tabla
+            val table = Table(UnitValue.createPercentArray(floatArrayOf(3f, 2f, 2f, 2f))).useAllAvailableWidth()
+
+            // Encabezados
+            val headerStyle = Style()
+                .setFontColor(ColorConstants.WHITE)
+                .setBackgroundColor(DeviceRgb(211, 47, 47)) // Rojo oscuro
+                .setBold()
+                .setPadding(6f)
+
+            table.addHeaderCell(Cell().add(Paragraph("Nombre").addStyle(headerStyle)))
+            table.addHeaderCell(Cell().add(Paragraph("Stock Actual").addStyle(headerStyle)))
+            table.addHeaderCell(Cell().add(Paragraph("Stock Mínimo").addStyle(headerStyle)))
+            table.addHeaderCell(Cell().add(Paragraph("Estado").addStyle(headerStyle)))
+
+            // Datos
+            for (producto in productos) {
+                val cellStyle = Style()
+                    .setPadding(5f)
+                    .setBorder(Border.NO_BORDER)
+
+                table.addCell(Cell().add(Paragraph(producto.nombre).addStyle(cellStyle)))
+                table.addCell(Cell().add(Paragraph(producto.stockActual.toString()).addStyle(cellStyle)))
+                table.addCell(Cell().add(Paragraph(producto.stockMinimo.toString()).addStyle(cellStyle)))
+                table.addCell(Cell().add(Paragraph(if (producto.estado == 1) "Activo" else "Inactivo").addStyle(cellStyle)))
+            }
+
+            document.add(table)
+
+            // Mensaje final
+            document.add(
+                Paragraph("\nEstos productos han alcanzado su nivel mínimo de inventario.")
+                    .setFontSize(10f)
+                    .setTextAlignment(TextAlignment.CENTER)
+                    .setItalic()
+                    .setMarginTop(30f)
+            )
+
+            document.close()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    // funcion para enviar la alerta al correo
+    private fun enviarAlertaPorCorreo(context: Context, productos: List<Producto>, destinatarios: Array<String>) {
+        if (productos.isEmpty()) return
+
+        val directorio = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
+        directorio?.mkdirs()
+        val archivoPdf = File(directorio, "alerta_stock_minimo.pdf")
+        generarPDFdeAlertaStock(context, productos, archivoPdf)
+
+        val emailIntent = Intent(Intent.ACTION_SEND).apply {
+            type = "message/rfc822"
+            putExtra(Intent.EXTRA_EMAIL, destinatarios)
+            putExtra(Intent.EXTRA_SUBJECT, "⚠️ Alerta: Producto(s) en stock mínimo")
+            putExtra(Intent.EXTRA_TEXT, "Hola,\n\nLos siguientes productos han alcanzado su nivel mínimo de inventario:")
+            val uri = FileProvider.getUriForFile(
+                context,
+                "${context.packageName}.provider",
+                archivoPdf
+            )
+            putExtra(Intent.EXTRA_STREAM, uri)
+        }
+
+        try {
+            // Usamos el launcher para recibir el resultado
+            correoLauncher.launch(emailIntent)
+        } catch (e: Exception) {
+            Toast.makeText(context, "❌ No hay se encontro correos de Vendedor.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private val correoLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+
+        Toast.makeText(this, "✅ Se envió correctamente la alerta de stock mínimo", Toast.LENGTH_LONG).show()
+    }
+
+
+    private fun obtenerCorreosDeVendedores(onComplete: (List<String>) -> Unit) {
+        val database = FirebaseDatabase.getInstance()
+        val usuariosRef = database.getReference("Usuarios")
+
+        usuariosRef.orderByChild("rol").equalTo("Vendedor")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val emails = mutableListOf<String>()
+                    for (child in snapshot.children) {
+                        val correo = child.child("correo").value as? String
+                        correo?.let { emails.add(it) }
+                    }
+                    onComplete(emails)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("FirebaseDBError", "Error al leer usuarios: ${error.message}")
+                    onComplete(emptyList())
+                }
+            })
     }
 
     override fun onSupportNavigateUp(): Boolean {
