@@ -228,7 +228,7 @@
                 <ImageView
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:src="@drawable/abastecimiento" />
+                    android:src="@drawable/ic_launcher_background" />
 
                 <TextView
                     android:text="@string/tvAbastecimiento"
