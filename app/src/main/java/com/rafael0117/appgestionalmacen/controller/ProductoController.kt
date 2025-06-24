@@ -119,4 +119,64 @@ class ProductoController {
         return salida
     }
 
+    fun findProductosConStockMinimo(): List<Producto> {
+        val lista = ArrayList<Producto>()
+        val cn: SQLiteDatabase = appConfig.BD.readableDatabase
+
+        // Consulta SQL modificada para alinearse con el constructor
+        val sql = """
+        SELECT 
+            p.codigo, 
+            p.nombre, 
+            p.descripcion, 
+            c.cod AS categoria_codigo, 
+            c.nom AS categoria_nombre, 
+            p.marca, 
+            p.modelo, 
+            pr.codigo AS proveedor_codigo, 
+            pr.nombre AS proveedor_nombre, 
+            p.precio_compra, 
+            p.precio_venta, 
+            p.stock_actual, 
+            p.stock_minimo, 
+            p.ubicacion, 
+            p.fecha_ingreso, 
+            p.estado, 
+            p.imagen
+        FROM tb_producto p
+        JOIN tb_categoria c ON p.categoria_codigo = c.cod
+        JOIN tb_proveedor pr ON p.proveedor_codigo = pr.codigo
+        WHERE p.stock_actual <= p.stock_minimo
+    """.trimIndent()
+
+        val rs = cn.rawQuery(sql, null)
+
+        while (rs.moveToNext()) {
+            val producto = Producto(
+                // Los parámetros deben coincidir EXACTAMENTE con el constructor
+                rs.getInt(0),     // codigo
+                rs.getString(1),  // nombre
+                rs.getString(2),  // descripcion
+                rs.getInt(3),     // categoria_codigo (int)
+                rs.getString(4),  // categoria_nombre (string)
+                rs.getString(5),  // marca
+                rs.getString(6),  // modelo
+                rs.getInt(7),     // proveedor_codigo (int)
+                rs.getString(8),  // proveedor_nombre (string)
+                rs.getDouble(9), // precio_compra
+                rs.getDouble(10), // precio_venta
+                rs.getInt(11),    // stock_actual
+                rs.getInt(12),    // stock_minimo
+                rs.getString(13), // ubicacion
+                rs.getString(14), // fecha_ingreso (como String)
+                rs.getInt(15),    // estado
+                rs.getString(16)  // imagen
+            )
+            lista.add(producto)
+        }
+
+        rs.close()
+        return lista
+    }
+
 }

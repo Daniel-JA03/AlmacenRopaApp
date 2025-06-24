@@ -1,17 +1,44 @@
 package com.rafael0117.appgestionalmacen
 
+import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.FileProvider
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.itextpdf.io.image.ImageDataFactory
+import com.itextpdf.kernel.colors.ColorConstants
+import com.itextpdf.kernel.colors.DeviceRgb
+import com.itextpdf.kernel.pdf.DocumentProperties
+import com.itextpdf.kernel.pdf.PdfDocument
+import com.itextpdf.kernel.pdf.PdfWriter
+import com.itextpdf.layout.Document
+import com.itextpdf.layout.Style
+import com.itextpdf.layout.borders.Border
+import com.itextpdf.layout.element.Cell
+import com.itextpdf.layout.element.Image
+import com.itextpdf.layout.element.Paragraph
+import com.itextpdf.layout.element.Table
+import com.itextpdf.layout.properties.HorizontalAlignment
+import com.itextpdf.layout.properties.TextAlignment
+import com.itextpdf.layout.properties.UnitValue
 import com.rafael0117.appgestionalmacen.adaptador.ProductoAdapter
 import com.rafael0117.appgestionalmacen.controller.ProductoController
 import com.rafael0117.appgestionalmacen.entidad.Producto
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.io.FileOutputStream
+import java.util.Calendar
 
 class InventarioProducto : AppCompatActivity() {
 
@@ -22,6 +49,8 @@ class InventarioProducto : AppCompatActivity() {
     private lateinit var rbActivos: RadioButton
     private lateinit var rbInactivos: RadioButton
     private lateinit var rvInventarioProductos: RecyclerView
+
+    private lateinit var fabVerPdf: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,6 +73,13 @@ class InventarioProducto : AppCompatActivity() {
         rbActivos = findViewById(R.id.rbActivos)
         rbInactivos = findViewById(R.id.rbInactivos)
         rvInventarioProductos = findViewById(R.id.rvInventarioProductos)
+        fabVerPdf = findViewById(R.id.fabVerPdf)
+
+        fabVerPdf.setOnClickListener {
+            val listaCompleta = ProductoController().findAll()
+            generarPDFdeProductosConiText(listaCompleta, this)
+        }
+
 
         btnBuscarProducto.setOnClickListener {
             cargarProductos()
@@ -86,6 +122,121 @@ class InventarioProducto : AppCompatActivity() {
         rvInventarioProductos.adapter = ProductoAdapter(ArrayList(filtrados))
         rvInventarioProductos.layoutManager = LinearLayoutManager(this)
     }
+
+    // PDF listado de productos
+    private fun generarPDFdeProductosConiText(productos: List<Producto>, context: Context) {
+        val directorio = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)
+        directorio?.mkdirs()
+
+        val archivo = File(directorio, "listado_productos.pdf")
+
+        try {
+            // Crear escritor y documento PDF
+            val writer = PdfWriter(FileOutputStream(archivo))
+            val pdfDoc = PdfDocument(writer, DocumentProperties())
+            val document = Document(pdfDoc)
+
+            // Cargar logo desde recursos
+            val bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.localizacion_sedes)
+            val stream = ByteArrayOutputStream()
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+            val imageData = ImageDataFactory.create(stream.toByteArray())
+            val logo = Image(imageData).setWidth(UnitValue.createPercentValue(20f))
+
+            // Añadir logo y título
+            val headerTable = Table(UnitValue.createPercentArray(floatArrayOf(1f))).useAllAvailableWidth()
+            headerTable.addCell(Cell().add(logo.setHorizontalAlignment(HorizontalAlignment.CENTER)))
+            headerTable.addCell(
+                Cell().add(
+                    Paragraph("Empresa RopaStock")
+                        .setFontSize(14f)
+                        .setTextAlignment(TextAlignment.CENTER)
+                        .setFontColor(ColorConstants.GRAY)
+                )
+            )
+            headerTable.addCell(
+                Cell().add(
+                    Paragraph("Listado de Productos")
+                        .setFontSize(20f)
+                        .setBold()
+                        .setTextAlignment(TextAlignment.CENTER)
+                        .setMarginTop(10f)
+                        .setMarginBottom(20f)
+                )
+            )
+
+            document.add(headerTable)
+
+            // Crear tabla de productos
+            val table = Table(UnitValue.createPercentArray(floatArrayOf(3f, 2f, 2f, 2f, 2f))).useAllAvailableWidth()
+            table.setTextAlignment(TextAlignment.CENTER)
+            table.setFontSize(10f)
+
+            // Estilo de encabezado
+            val headerStyle = Style()
+                .setFontColor(ColorConstants.WHITE)
+                .setBackgroundColor(DeviceRgb(30, 136, 229)) // 1E88E5 en RGB decimal
+                .setBold()
+                .setPadding(6f)
+
+            // Encabezados
+            table.addHeaderCell(Cell().add(Paragraph("Nombre").addStyle(headerStyle)))
+            table.addHeaderCell(Cell().add(Paragraph("Precio Compra").addStyle(headerStyle)))
+            table.addHeaderCell(Cell().add(Paragraph("Precio Venta").addStyle(headerStyle)))
+            table.addHeaderCell(Cell().add(Paragraph("Stock").addStyle(headerStyle)))
+            table.addHeaderCell(Cell().add(Paragraph("Estado").addStyle(headerStyle)))
+
+            // Datos de productos
+            for (producto in productos) {
+                val estadoTexto = if (producto.estado == 1) "Activo" else "Inactivo"
+
+                // Estilo común para celdas
+                val cellStyle = Style()
+                    .setPadding(5f)
+                    .setBorder(Border.NO_BORDER)
+
+                table.addCell(Cell().add(Paragraph(producto.nombre).addStyle(cellStyle)))
+                table.addCell(Cell().add(Paragraph(producto.preciocompra.toString()).addStyle(cellStyle)))
+                table.addCell(Cell().add(Paragraph(producto.precioventa.toString()).addStyle(cellStyle)))
+                table.addCell(Cell().add(Paragraph(producto.stockActual.toString()).addStyle(cellStyle)))
+                table.addCell(Cell().add(Paragraph(estadoTexto).addStyle(cellStyle)))
+            }
+
+            // Añadir tabla al documento
+            document.add(table)
+
+            // Pie de página
+            val footer = Paragraph("© ${Calendar.getInstance().get(Calendar.YEAR)} Empresa RopaStock - Todos los derechos reservados")
+                .setFontSize(9f)
+                .setTextAlignment(TextAlignment.CENTER)
+                .setMarginTop(30f)
+            document.add(footer)
+
+            // Cerrar documento
+            document.close()
+
+            Toast.makeText(context, "PDF generado en: ${archivo.path}", Toast.LENGTH_LONG).show()
+
+            // Abrir PDF
+            val uri = FileProvider.getUriForFile(
+                context,
+                "${context.packageName}.provider",
+                archivo
+            )
+
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                setDataAndType(uri, "application/pdf")
+                flags = Intent.FLAG_GRANT_READ_URI_PERMISSION
+            }
+
+            context.startActivity(intent)
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+            Toast.makeText(context, "Error al crear el PDF", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()
