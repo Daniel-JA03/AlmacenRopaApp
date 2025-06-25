@@ -91,7 +91,7 @@ class ProductoController {
 
         return salida
     }
-    fun editarCategoria(bean: Producto):Int{
+    fun editarProducto(bean: Producto):Int{
         var salida=-1
         var cn:SQLiteDatabase=appConfig.BD.writableDatabase
         var row=ContentValues()
@@ -109,7 +109,7 @@ class ProductoController {
         row.put("fecha_ingreso", bean.fechaIngreso)
         row.put("estado", bean.estado)
         row.put("imagen", bean.imagen)
-        salida=cn.update("tb_producto",row,"cod=?", arrayOf(bean.codigo.toString()))
+        salida=cn.update("tb_producto",row,"codigo=?", arrayOf(bean.codigo.toString()))
         return salida
     }
     fun eliminarCategoria(codigo: Int): Int {

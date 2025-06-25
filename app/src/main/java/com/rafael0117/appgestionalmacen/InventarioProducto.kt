@@ -136,7 +136,11 @@ class InventarioProducto : AppCompatActivity() {
             coincideBusqueda && coincideEstado
         }
 
-        rvInventarioProductos.adapter = ProductoAdapter(ArrayList(filtrados))
+        rvInventarioProductos.adapter = ProductoAdapter(ArrayList(filtrados)) { producto ->
+            val intent = Intent(this, EditarProducto::class.java)
+            intent.putExtra("producto", producto)
+            startActivity(intent)
+        }
         rvInventarioProductos.layoutManager = LinearLayoutManager(this)
     }
 

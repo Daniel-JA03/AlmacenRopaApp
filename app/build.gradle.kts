@@ -57,6 +57,8 @@ dependencies {
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation ("com.itextpdf:itext7-core:7.2.5")
+    implementation("com.squareup.picasso:picasso:2.71828")
+
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)

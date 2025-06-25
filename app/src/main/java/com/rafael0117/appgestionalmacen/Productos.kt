@@ -91,9 +91,14 @@ class Productos : AppCompatActivity() {
             coincideBusqueda && coincideEstado
         }
 
-        rvProductos.adapter = ProductoAdapter(ArrayList(filtrados))
+        rvProductos.adapter = ProductoAdapter(ArrayList(filtrados)) { producto ->
+            val intent = Intent(this, EditarProducto::class.java)
+            intent.putExtra("producto", producto)
+            startActivity(intent)
+        }
         rvProductos.layoutManager = LinearLayoutManager(this)
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return super.onSupportNavigateUp()

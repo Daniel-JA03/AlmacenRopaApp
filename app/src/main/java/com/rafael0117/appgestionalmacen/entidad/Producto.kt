@@ -1,5 +1,7 @@
 package com.rafael0117.appgestionalmacen.entidad
 
+import java.io.Serializable
+
 class Producto(
     var codigo:Int,
     var nombre:String,
@@ -18,5 +20,5 @@ class Producto(
     var fechaIngreso:String,
     var estado:Int,
     var imagen:String
-    ) {
+    ):Serializable {
 }

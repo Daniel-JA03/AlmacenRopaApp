@@ -6,13 +6,14 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.rafael0117.appgestionalmacen.DetalleProducto
-import com.rafael0117.appgestionalmacen.Email
+import com.rafael0117.appgestionalmacen.EditarProducto
 import com.rafael0117.appgestionalmacen.R
 import com.rafael0117.appgestionalmacen.entidad.Producto
-import com.rafael0117.appgestionalmacen.holder.VistaCategoria
 import com.rafael0117.appgestionalmacen.holder.VistaProducto
 
-class ProductoAdapter (var lista:ArrayList<Producto>):RecyclerView.Adapter<VistaProducto>(){
+class ProductoAdapter (var lista:ArrayList<Producto>,
+private val onItemClick: (Producto) -> Unit
+):RecyclerView.Adapter<VistaProducto>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VistaProducto {
         val item = LayoutInflater.from(parent.context).inflate(R.layout.item_producto, parent, false)
         return VistaProducto(item)
@@ -57,6 +58,15 @@ class ProductoAdapter (var lista:ArrayList<Producto>):RecyclerView.Adapter<Vista
             }
             context.startActivity(intent)
         }
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, EditarProducto::class.java).apply {
+                putExtra("producto", producto)
+            }
+            context.startActivity(intent)
+        }
+
 
     }
 }
