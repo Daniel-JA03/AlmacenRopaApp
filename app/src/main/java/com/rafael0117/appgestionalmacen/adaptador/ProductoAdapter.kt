@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.rafael0117.appgestionalmacen.DetalleProducto
 import com.rafael0117.appgestionalmacen.EditarProducto
 import com.rafael0117.appgestionalmacen.R
@@ -35,6 +36,11 @@ private val onItemClick: (Producto) -> Unit
                 if (producto.estado == 1) android.R.color.holo_green_dark else android.R.color.holo_red_dark
             )
         )
+        Glide.with(holder.itemView.context)
+            .load(producto.imagen) // puede ser una URL o una ruta local
+            .placeholder(R.drawable.baseline_broken_image_24) // opcional
+            .error(R.drawable.baseline_image_24) // opcional
+            .into(holder.imgProducto)
 
         holder.btnVerMas.setOnClickListener {
             val context = holder.itemView.context
