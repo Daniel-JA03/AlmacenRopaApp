@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:padding="10dp"
+android:orientation="vertical">
+
+<TextView
+    android:id="@+id/tvCogidoStock"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Codigo"
+    android:textStyle="bold"
+    android:textSize="16sp"/>
+<TextView
+    android:id="@+id/tvNombreProductoStock"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Nombre producto"
+    android:textStyle="bold"
+    android:textSize="16sp"/>
+
+<TextView
+    android:id="@+id/tvStockInfo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Stock actual: 3 | Stock mínimo: 5"
+    android:textColor="@android:color/holo_red_dark"/>
+</LinearLayout>

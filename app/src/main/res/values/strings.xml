@@ -35,6 +35,7 @@
     <string name="tvProveedores">Proveedores</string>
     <string name="tvLocalizacion">Localización</string>
     <string name="tvAbastecimiento">Abastecimiento e Ingreso</string>
+    <string name="tvStockMinimo">Stock Minimo</string>
 
     <!--AGREGAR CATEGORIAS-->
     <string name="id_categoria">ID de la Categoría</string>
