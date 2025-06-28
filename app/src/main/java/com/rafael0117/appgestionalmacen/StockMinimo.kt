@@ -46,6 +46,11 @@ class StockMinimo : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        supportActionBar?.apply {
+            title = "Stock Minimo"
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
 
         spinnerProveedor = findViewById(R.id.spinnerProveedor)
         rvStockMinimo = findViewById(R.id.rvStockMinimo)
@@ -128,5 +133,9 @@ class StockMinimo : AppCompatActivity() {
         val nombreArchivo = "Stock_Minimo_${proveedorNombre}_$fechaActual.pdf"
 
         createPdfLauncher.launch(nombreArchivo)
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 }

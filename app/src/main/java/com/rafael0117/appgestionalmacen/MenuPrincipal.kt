@@ -37,6 +37,7 @@ class MenuPrincipal : AppCompatActivity() {
     private lateinit var cdLocalizacion: CardView
     private lateinit var cdAbastecimiento: CardView
     private lateinit var cdStockMinimo: CardView
+    private lateinit var cdTraslado: CardView
 
     private lateinit var Usuarios:DatabaseReference
 
@@ -62,6 +63,7 @@ class MenuPrincipal : AppCompatActivity() {
         cdLocalizacion=findViewById(R.id.cdLocalizacion)
         cdAbastecimiento=findViewById(R.id.cdAbastecimiento)
         cdStockMinimo=findViewById(R.id.cdStockMinimo)
+        cdTraslado=findViewById(R.id.cdTraslado)
 
         btnCerrarSesion=findViewById(R.id.CerrarSesion)
         tvNombres=findViewById(R.id.NombrePrincipal)
@@ -90,6 +92,9 @@ class MenuPrincipal : AppCompatActivity() {
         }
         cdStockMinimo.setOnClickListener(){
             startActivity(Intent(this,StockMinimo::class.java))
+        }
+        cdTraslado.setOnClickListener(){
+            startActivity(Intent(this,RegistrarMovimiento::class.java))
         }
 
 
@@ -140,6 +145,7 @@ class MenuPrincipal : AppCompatActivity() {
                             cdLocalizacion.visibility = View.VISIBLE
                             cdAbastecimiento.visibility = View.VISIBLE
                             cdStockMinimo.visibility = View.VISIBLE
+                            cdTraslado.visibility = View.VISIBLE
                         } else if (rol.equals("Vendedor", ignoreCase = true)) {
                             // Mostrar solo algunos
                             cdCategorias.visibility = View.GONE

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".RegistrarMovimiento">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center">
+
+            <Spinner
+                android:id="@+id/spinnerTipo"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:prompt="@string/tipo_de_movimiento"/>
+            <Spinner
+                android:id="@+id/spinnerProducto"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:prompt="@string/producto"/>
+            <EditText
+                android:id="@+id/etCantidad"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/cantidad"
+                android:inputType="number"/>
+            <Spinner
+                android:id="@+id/spinnerSedeOrigen"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:prompt="@string/sede_origen"/>
+            <Spinner
+                android:id="@+id/spinnerSedeDestino"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:prompt="@string/sede_destino"/>
+            <EditText
+                android:id="@+id/etObservaciones"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/observaciones"/>
+            <Button
+                android:id="@+id/btnGuardarMovimiento"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/registrar_movimiento"/>
+        </LinearLayout>
+    </FrameLayout>
+</ScrollView>

@@ -36,6 +36,7 @@
     <string name="tvLocalizacion">Localización</string>
     <string name="tvAbastecimiento">Abastecimiento e Ingreso</string>
     <string name="tvStockMinimo">Stock Minimo</string>
+    <string name="tvTraslado">Traslado</string>
 
     <!--AGREGAR CATEGORIAS-->
     <string name="id_categoria">ID de la Categoría</string>
@@ -63,4 +64,13 @@
     <string name="labelDescripcion">Ingresar Descripción</string>
     <string name="labelCodigoSede">Ingrese Codigo De Sede Existente</string>
 
+
+    <!--Registrar moviemiento-->
+    <string name="tipo_de_movimiento">Tipo de movimiento</string>
+    <string name="producto">Producto</string>
+    <string name="sede_origen">Sede Origen</string>
+    <string name="sede_destino">Sede Destino</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="observaciones">Observaciones</string>
+    <string name="registrar_movimiento">Registrar Movimiento</string>
 </resources>

@@ -6,4 +6,5 @@ class Sede( var codigo: Int = 0,
             var foto: String,
             var nomDis: String,
             var estado: Int): Serializable {
+    override fun toString(): String = nomDis
 }

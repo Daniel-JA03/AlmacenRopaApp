@@ -1,7 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Tema base en modo oscuro -->
     <style name="Base.Theme.AppGestionAlmacen" parent="Theme.Material3.DayNight">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Colores para modo oscuro -->
+        <item name="colorPrimary">#7C4DFF</item>           <!-- Púrpura más brillante -->
+        <item name="colorOnPrimary">#FFFFFF</item>
+
+        <item name="colorSurface">#1F1F1F</item>           <!-- Tarjetas oscuras -->
+        <item name="colorOnSurface">#FFFFFF</item>
+
+        <item name="android:colorBackground">#121212</item>
+        <item name="colorOnBackground">#FFFFFF</item>
     </style>
+
+    <style name="Theme.AppGestionAlmacen" parent="Base.Theme.AppGestionAlmacen" />
 </resources>

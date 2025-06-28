@@ -21,4 +21,5 @@ class Producto(
     var estado:Int,
     var imagen:String
     ):Serializable {
+    override fun toString(): String = nombre
 }
