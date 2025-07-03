@@ -60,7 +60,7 @@
             android:fontFamily="@font/notoserif"
             android:textColor="@android:color/white"
             android:text="@string/Btn_Registro"
-            android:background="@drawable/btn_registro_background"
+            android:background="@drawable/btn_background"
             app:backgroundTint="@null"
             app:rippleColor="@null" />
 
