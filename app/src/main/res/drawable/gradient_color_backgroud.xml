@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Fondo base: azul oscuro a lavanda (elegante) -->
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#1b1f3b"
+            android:endColor="#3c366b"
+            android:type="linear"
+            android:angle="135" />
+        </shape>
+    </item>
+
+    <!-- Capa de luz 1: tono vino/rosado translúcido -->
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#997c3660"
+                android:centerColor="#1b1f3b"
+                android:endColor="#3c366b"
+                android:type="radial"
+                android:gradientRadius="110%p"
+                android:centerX="0.2"
+                android:centerY="0.2" />
+        </shape>
+    </item>
+
+    <!-- Capa de luz 2: luz violeta translúcida -->
+    <item>
+        <shape>
+            <gradient
+                android:startColor="#800f8a75"
+                android:centerColor="@android:color/transparent"
+                android:endColor="@android:color/transparent"
+                android:gradientRadius="110%p"
+                android:centerY="0.6"
+                android:centerX="0.8"
+                android:type="radial" />
+        </shape>
+    </item>
+
+</layer-list>
