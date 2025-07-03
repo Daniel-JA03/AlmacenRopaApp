@@ -72,7 +72,7 @@ class InitBD: SQLiteOpenHelper(appConfig.CONTEXT,appConfig.BD_NAME,null,
         )
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Camisa Casual Hombre', 'Camisa de algodón manga larga', 1, 'H&M', 'CSH2024', 1, 45.50, 75.90, 100, 10, 'Estante A1', '2024-06-01', 'Activo', 'camisa.jpg')"
+                    "VALUES ('Camisa Casual Hombre', 'Camisa de algodón manga larga', 1, 'H&M', 'CSH2024', 1, 45.50, 75.90, 100, 10, 'Estante A1', '2024-06-01', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751565834161.jpg?alt=media&token=176d9e2a-a0fc-41bf-ab44-98f740758dec')"
         )
 
         db.execSQL(
@@ -82,67 +82,63 @@ class InitBD: SQLiteOpenHelper(appConfig.CONTEXT,appConfig.BD_NAME,null,
 
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Camisa Blanca Formal', 'Ideal para oficina o eventos', 1, 'Zara', 'CWB450', 3, 52.75, 89.99, 80, 15, 'Estante A2', '2024-06-08', 'Activo', 'camisa')"
+                    "VALUES ('Camisa Blanca Formal', 'Ideal para oficina o eventos', 1, 'Zara', 'CWB450', 3, 52.75, 89.99, 80, 15, 'Estante A2', '2024-06-08', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751563922497.jpg?alt=media&token=eac116e3-3bc4-4713-b682-4bc274bc6cf5')"
         )
 
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Pantalón Chino Hombre', 'Pantalón casual beige', 2, 'Uniqlo', 'PCH780', 1, 40.00, 65.00, 60, 8, 'Estante B1', '2024-06-10', 'Activo', 'https://ejemplo.com/img/chino1.jpg')"
+                    "VALUES ('Pantalón Chino Hombre', 'Pantalón casual beige', 2, 'Uniqlo', 'PCH780', 1, 40.00, 65.00, 60, 8, 'Estante B1', '2024-06-10', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751565749104.jpg?alt=media&token=aa209c77-f2cd-4bdd-b000-7c8f8ab505a7')"
         )
 
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Camisa Flanelada', 'Camisa a cuadros de invierno', 1, 'Old Navy', 'FLA2024', 2, 55.00, 85.00, 40, 5, 'Estante A4', '2024-06-12', 'Desactivado', 'https://ejemplo.com/img/flanelada.jpg')"
+                    "VALUES ('Camisa Flanelada', 'Camisa a cuadros de invierno', 1, 'Old Navy', 'FLA2024', 2, 55.00, 85.00, 40, 5, 'Estante A4', '2024-06-12', 'Desactivado', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2Fcamisa.jpg?alt=media&token=d70aa953-e2f1-4e24-92c1-2c4fdd4fb20c')"
         )
 
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Blusa Seda Mujer', 'Blusa elegante de seda color crema', 1, 'Mango', 'BSM2024', 2, 55.00, 110.00, 30, 6, 'Estante C2', '2024-06-15', 'Activo', 'https://ejemplo.com/img/blusa_seda.jpg')"
+                    "VALUES ('Blusa Seda Mujer', 'Blusa elegante de seda color crema', 1, 'Mango', 'BSM2024', 2, 55.00, 110.00, 30, 6, 'Estante C2', '2024-06-15', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751565557129.jpg?alt=media&token=de4e63be-c2ae-4625-ba3f-1b1e96992abd')"
         )
 
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Short Deportivo Hombre', 'Short para entrenamiento color negro', 3, 'Nike', 'SDH2024', 3, 35.00, 65.00, 45, 10, 'Estante D1', '2024-06-18', 'Activo', 'https://ejemplo.com/img/short_nike.jpg')"
+                    "VALUES ('Short Deportivo Hombre', 'Short para entrenamiento color negro', 3, 'Nike', 'SDH2024', 3, 35.00, 65.00, 45, 10, 'Estante D1', '2024-06-18', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751565469538.jpg?alt=media&token=94ac6008-bc7a-4b90-b51a-88b48e68f4f5')"
         )
 
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Vestido Largo Mujer', 'Vestido largo floral verano', 4, 'Forever 21', 'VLM2024', 2, 70.00, 150.00, 35, 7, 'Estante C5', '2024-06-20', 'Activo', 'https://ejemplo.com/img/vestido_largo.jpg')"
+                    "VALUES ('Vestido Largo Mujer', 'Vestido largo floral verano', 4, 'Forever 21', 'VLM2024', 2, 70.00, 150.00, 35, 7, 'Estante C5', '2024-06-20', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751564971705.jpg?alt=media&token=569a393f-36f2-421d-82e2-bda49104b83e')"
         )
 
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Casaca Impermeable Hombre', 'Casaca resistente al agua', 5, 'Columbia', 'CIH850', 1, 90.00, 180.00, 20, 4, 'Estante E1', '2024-06-21', 'Activo', 'https://ejemplo.com/img/casaca_hombre.jpg')"
+                    "VALUES ('Casaca Impermeable Hombre', 'Casaca resistente al agua', 5, 'Columbia', 'CIH850', 1, 90.00, 180.00, 20, 4, 'Estante E1', '2024-06-21', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751226467198.jpg?alt=media&token=e0abf95b-c374-4d13-aeba-8b5b47fe7176')"
         )
 
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Falda Plisada Mujer', 'Falda plisada color vino', 4, 'Stradivarius', 'FPM2024', 3, 38.00, 80.00, 28, 5, 'Estante C3', '2024-06-22', 'Activo', 'https://ejemplo.com/img/falda_plisada.jpg')"
+                    "VALUES ('Falda Plisada Mujer', 'Falda plisada color vino', 4, 'Stradivarius', 'FPM2024', 3, 38.00, 80.00, 28, 5, 'Estante C3', '2024-06-22', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751564724785.jpg?alt=media&token=c1d3bbbe-ee7c-4e8a-a344-33682fa810eb')"
         )
 
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Polo Algodón Hombre', 'Polo básico algodón blanco', 3, 'Adidas', 'PAH2024', 2, 25.00, 49.90, 70, 12, 'Estante B2', '2024-06-23', 'Activo', 'https://ejemplo.com/img/polo_algodon.jpg')"
+                    "VALUES ('Polo Algodón Hombre', 'Polo básico algodón blanco', 3, 'Adidas', 'PAH2024', 2, 25.00, 49.90, 70, 12, 'Estante B2', '2024-06-23', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751564565433.jpg?alt=media&token=808953a7-fbac-4042-840a-4b58c4b66aab')"
+        )
+
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Chompa Tejida Mujer', 'Chompa de lana color beige', 5, 'Gap', 'CTM2024', 2, 65.00, 120.00, 16, 3, 'Estante D3', '2024-06-25', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751564376102.jpg?alt=media&token=feb64fc8-68b7-4186-9b21-596e4add0c06')"
         )
 
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Zapatilla Running Hombre', 'Zapatilla deportiva liviana', 6, 'New Balance', 'ZRH2024', 1, 110.00, 210.00, 24, 5, 'Estante F1', '2024-06-24', 'Activo', 'https://ejemplo.com/img/zapatilla_nb.jpg')"
+                    "VALUES ('Polera Hoodie Unisex', 'Polera con capucha color gris', 3, 'Pull&Bear', 'PHU2024', 3, 48.00, 90.00, 38, 8, 'Estante D4', '2024-06-26', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751564298813.jpg?alt=media&token=d07c2e80-bd3e-4e8e-8cad-c26ae94a8428')"
         )
 
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Chompa Tejida Mujer', 'Chompa de lana color beige', 5, 'Gap', 'CTM2024', 2, 65.00, 120.00, 16, 3, 'Estante D3', '2024-06-25', 'Activo', 'https://ejemplo.com/img/chompa_tejida.jpg')"
-        )
-
-        db.execSQL(
-            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Polera Hoodie Unisex', 'Polera con capucha color gris', 3, 'Pull&Bear', 'PHU2024', 3, 48.00, 90.00, 38, 8, 'Estante D4', '2024-06-26', 'Activo', 'https://ejemplo.com/img/polera_hoodie.jpg')"
-        )
-
-        db.execSQL(
-            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Short Jean Mujer', 'Short jean azul claro', 2, 'Levi''s', 'SJM2024', 2, 28.00, 55.00, 25, 5, 'Estante B4', '2024-06-27', 'Activo', 'https://ejemplo.com/img/short_jean.jpg')"
+                    "VALUES ('Short Jean Mujer', 'Short jean azul claro', 2, 'Levi''s', 'SJM2024', 2, 28.00, 55.00, 25, 5, 'Estante B4', '2024-06-27', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751564185517.jpg?alt=media&token=571edb8f-806e-42bd-9697-4b46af4412b2')"
         )
 
         // Tabla localizacion (sedes)

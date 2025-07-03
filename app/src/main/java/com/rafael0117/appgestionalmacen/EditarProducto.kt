@@ -17,7 +17,6 @@ import com.rafael0117.appgestionalmacen.entidad.Producto
 import com.rafael0117.appgestionalmacen.entidad.Proveedor
 import com.squareup.picasso.Picasso
 
-
 class EditarProducto : AppCompatActivity() {
 
     private lateinit var edtNombre: TextInputEditText
@@ -127,8 +126,22 @@ class EditarProducto : AppCompatActivity() {
 
         btnGuardarProducto.setText("Actualizar Producto")
         btnGuardarProducto.setOnClickListener {
-            actualizarProducto()
+            mostrarDialogoConfirmacion()
         }
+    }
+
+    private fun mostrarDialogoConfirmacion() {
+        val builder = androidx.appcompat.app.AlertDialog.Builder(this)
+        builder.setTitle("Confirmar actualización")
+        builder.setMessage("¿Está seguro que desea actualizar este producto?")
+        builder.setPositiveButton("Sí") { dialog, _ ->
+            actualizarProducto()
+            dialog.dismiss()
+        }
+        builder.setNegativeButton("Cancelar") { dialog, _ ->
+            dialog.dismiss()
+        }
+        builder.show()
     }
 
     private fun actualizarProducto() {
