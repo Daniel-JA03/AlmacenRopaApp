@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_color_backgroud"
     tools:context=".Login">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -20,6 +21,8 @@
             android:fontFamily="@font/notoserif"
             android:gravity="center"
             android:text="@string/IniciarSesionTXT"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
             android:textSize="25sp" />
 
         <com.airbnb.lottie.LottieAnimationView
@@ -33,10 +36,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="login.json"
+            app:lottie_fileName="AnimationLogin.json"
             app:lottie_loop="true" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutCorreo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -46,7 +50,17 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:startIconDrawable="@drawable/baseline_email_24">
+            app:startIconDrawable="@drawable/baseline_email_24"
+
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/CorreoLogin"
@@ -54,9 +68,10 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:padding="12dp"
-                android:textColor="@android:color/black"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textColor="@android:color/white"/>
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -68,7 +83,17 @@
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
             app:endIconMode="password_toggle"
-            app:startIconDrawable="@drawable/baseline_lock_24px">
+            app:startIconDrawable="@drawable/baseline_lock_24px"
+
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/PassLogin"
@@ -76,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:padding="12dp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,12 +110,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="@string/BtnLogeo"
-            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:fontFamily="@font/notoserif"
             android:textColor="@android:color/white"
-            android:textSize="16sp"
-            app:cornerRadius="12dp"
-            app:iconPadding="12dp" />
+            android:text="@string/Btn_Login"
+            android:background="@drawable/btn_background"
+            app:backgroundTint="@null"
+            app:rippleColor="@null" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/UsuarioNuevoTXT"
             android:layout_width="wrap_content"
@@ -102,7 +129,8 @@
             android:focusable="true"
             android:text="@string/UsuarioNuevoTXT"
             android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </RelativeLayout>
