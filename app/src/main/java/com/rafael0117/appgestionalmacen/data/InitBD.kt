@@ -77,7 +77,7 @@ class InitBD: SQLiteOpenHelper(appConfig.CONTEXT,appConfig.BD_NAME,null,
 
         db.execSQL(
             "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
-                    "VALUES ('Pantalón Jeans Mujer', 'Jeans ajustado azul oscuro', 2, 'Levi''s', 'WJ305', 2, 60.00, 99.90, 50, 5, 'Estante B3', '2024-06-05', 'Activo', 'camisa')"
+                    "VALUES ('Pantalón Jeans Mujer', 'Jeans ajustado azul oscuro', 2, 'Levi''s', 'WJ305', 2, 60.00, 99.90, 50, 5, 'Estante B3', '2024-06-05', 'Activo', 'https://firebasestorage.googleapis.com/v0/b/almacenropaapp.firebasestorage.app/o/productos%2F1751222451122.jpg?alt=media&token=53cf766f-272d-4fa2-920c-b9a5a8a846ab')"
         )
 
         db.execSQL(
