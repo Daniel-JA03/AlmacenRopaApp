@@ -178,5 +178,34 @@ class ProductoController {
         rs.close()
         return lista
     }
-
+    fun descontarStock(productoCodigo: Int, cantidad: Int): Int {
+        val cn: SQLiteDatabase = appConfig.BD.writableDatabase
+        // Primero obtenemos el stock actual
+        val cursor = cn.rawQuery("SELECT stock_actual FROM tb_producto WHERE codigo = ?", arrayOf(productoCodigo.toString()))
+        var stockActual = 0
+        if (cursor.moveToFirst()) {
+            stockActual = cursor.getInt(0)
+        }
+        cursor.close()
+        // Calculamos el nuevo stock (no permitimos stock negativo)
+        val nuevoStock = (stockActual - cantidad).coerceAtLeast(0)
+        // Actualizamos el stock
+        val row = ContentValues()
+        row.put("stock_actual", nuevoStock)
+        return cn.update("tb_producto", row, "codigo = ?", arrayOf(productoCodigo.toString()))
+    }
+    fun aumentarStock(productoCodigo: Int, cantidad: Int): Int {
+        val cn: SQLiteDatabase = appConfig.BD.writableDatabase
+        // Obtener stock actual
+        val cursor = cn.rawQuery("SELECT stock_actual FROM tb_producto WHERE codigo = ?", arrayOf(productoCodigo.toString()))
+        var stockActual = 0
+        if (cursor.moveToFirst()) {
+            stockActual = cursor.getInt(0)
+        }
+        cursor.close()
+        val nuevoStock = stockActual + cantidad
+        val row = ContentValues()
+        row.put("stock_actual", nuevoStock)
+        return cn.update("tb_producto", row, "codigo = ?", arrayOf(productoCodigo.toString()))
+    }
 }

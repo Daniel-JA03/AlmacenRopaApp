@@ -94,7 +94,7 @@ class MenuPrincipal : AppCompatActivity() {
             startActivity(Intent(this,StockMinimo::class.java))
         }
         cdTraslado.setOnClickListener(){
-            startActivity(Intent(this,RegistrarMovimiento::class.java))
+            startActivity(Intent(this,Movimiento::class.java))
         }
 
 
@@ -174,9 +174,19 @@ class MenuPrincipal : AppCompatActivity() {
 
 
     private fun salirAplicacion() {
-        firebaseAuth.signOut()
-        startActivity(Intent(this,MainActivity::class.java))
-        Toast.makeText(this,"Cerraste Sesion Exitosamente",Toast.LENGTH_SHORT).show()
+        val builder = android.app.AlertDialog.Builder(this)
+        builder.setTitle("Cerrar sesión")
+        builder.setMessage("¿Estás seguro de que deseas cerrar sesión?")
+        builder.setPositiveButton("Sí") { dialog, _ ->
+            firebaseAuth.signOut()
+            startActivity(Intent(this, MainActivity::class.java))
+            Toast.makeText(this, "Cerraste Sesion Exitosamente", Toast.LENGTH_SHORT).show()
+            finish()
+        }
+        builder.setNegativeButton("No") { dialog, _ ->
+            dialog.dismiss()
+        }
+        builder.create().show()
     }
     override fun onBackPressed() {
         super.onBackPressed()

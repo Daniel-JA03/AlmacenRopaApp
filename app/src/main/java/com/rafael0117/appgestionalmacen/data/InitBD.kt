@@ -95,6 +95,56 @@ class InitBD: SQLiteOpenHelper(appConfig.CONTEXT,appConfig.BD_NAME,null,
                     "VALUES ('Camisa Flanelada', 'Camisa a cuadros de invierno', 1, 'Old Navy', 'FLA2024', 2, 55.00, 85.00, 40, 5, 'Estante A4', '2024-06-12', 'Desactivado', 'https://ejemplo.com/img/flanelada.jpg')"
         )
 
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Blusa Seda Mujer', 'Blusa elegante de seda color crema', 1, 'Mango', 'BSM2024', 2, 55.00, 110.00, 30, 6, 'Estante C2', '2024-06-15', 'Activo', 'https://ejemplo.com/img/blusa_seda.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Short Deportivo Hombre', 'Short para entrenamiento color negro', 3, 'Nike', 'SDH2024', 3, 35.00, 65.00, 45, 10, 'Estante D1', '2024-06-18', 'Activo', 'https://ejemplo.com/img/short_nike.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Vestido Largo Mujer', 'Vestido largo floral verano', 4, 'Forever 21', 'VLM2024', 2, 70.00, 150.00, 35, 7, 'Estante C5', '2024-06-20', 'Activo', 'https://ejemplo.com/img/vestido_largo.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Casaca Impermeable Hombre', 'Casaca resistente al agua', 5, 'Columbia', 'CIH850', 1, 90.00, 180.00, 20, 4, 'Estante E1', '2024-06-21', 'Activo', 'https://ejemplo.com/img/casaca_hombre.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Falda Plisada Mujer', 'Falda plisada color vino', 4, 'Stradivarius', 'FPM2024', 3, 38.00, 80.00, 28, 5, 'Estante C3', '2024-06-22', 'Activo', 'https://ejemplo.com/img/falda_plisada.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Polo Algodón Hombre', 'Polo básico algodón blanco', 3, 'Adidas', 'PAH2024', 2, 25.00, 49.90, 70, 12, 'Estante B2', '2024-06-23', 'Activo', 'https://ejemplo.com/img/polo_algodon.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Zapatilla Running Hombre', 'Zapatilla deportiva liviana', 6, 'New Balance', 'ZRH2024', 1, 110.00, 210.00, 24, 5, 'Estante F1', '2024-06-24', 'Activo', 'https://ejemplo.com/img/zapatilla_nb.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Chompa Tejida Mujer', 'Chompa de lana color beige', 5, 'Gap', 'CTM2024', 2, 65.00, 120.00, 16, 3, 'Estante D3', '2024-06-25', 'Activo', 'https://ejemplo.com/img/chompa_tejida.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Polera Hoodie Unisex', 'Polera con capucha color gris', 3, 'Pull&Bear', 'PHU2024', 3, 48.00, 90.00, 38, 8, 'Estante D4', '2024-06-26', 'Activo', 'https://ejemplo.com/img/polera_hoodie.jpg')"
+        )
+
+        db.execSQL(
+            "INSERT INTO tb_producto (nombre, descripcion, categoria_codigo, marca, modelo, proveedor_codigo, precio_compra, precio_venta, stock_actual, stock_minimo, ubicacion, fecha_ingreso, estado, imagen) " +
+                    "VALUES ('Short Jean Mujer', 'Short jean azul claro', 2, 'Levi''s', 'SJM2024', 2, 28.00, 55.00, 25, 5, 'Estante B4', '2024-06-27', 'Activo', 'https://ejemplo.com/img/short_jean.jpg')"
+        )
+
         // Tabla localizacion (sedes)
         db.execSQL(
             "create table tb_sedes" +
