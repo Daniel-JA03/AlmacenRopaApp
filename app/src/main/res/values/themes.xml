@@ -1,5 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Tema base en modo claro -->
+    <!-- Tema base en modo claro Theme.Material3.DayNight-->
     <style name="Base.Theme.AppGestionAlmacen" parent="Theme.Material3.DayNight">
         <!-- Colores para modo claro -->
         <item name="colorPrimary">#6A1B9A</item>           <!-- Púrpura elegante -->

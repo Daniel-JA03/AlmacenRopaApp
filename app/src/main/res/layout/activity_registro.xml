@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_color_backgroud"
     tools:context=".Registro">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -19,6 +20,7 @@
             android:fontFamily="@font/notoserif"
             android:gravity="center"
             android:text="@string/CrearCuentaTxt"
+            android:textColor="@color/white"
             android:textSize="25sp" />
 
         <com.airbnb.lottie.LottieAnimationView
@@ -41,7 +43,18 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:startIconDrawable="@drawable/baseline_person_24">
+            app:startIconDrawable="@drawable/baseline_person_24"
+
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp"
+            android:textColor="@android:color/white">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/NombreEt"
@@ -49,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:padding="12dp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,7 +77,17 @@
             app:boxCornerRadiusBottomStart="12dp"
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
-            app:startIconDrawable="@drawable/baseline_email_24">
+            app:startIconDrawable="@drawable/baseline_email_24"
+
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/CorreoEt"
@@ -72,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:padding="12dp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,7 +111,17 @@
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
             app:endIconMode="password_toggle"
-            app:startIconDrawable="@drawable/baseline_lock_24px">
+            app:startIconDrawable="@drawable/baseline_lock_24px"
+
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/ContraseñaEt"
@@ -96,7 +129,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:padding="12dp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -112,7 +145,17 @@
             app:boxCornerRadiusTopEnd="12dp"
             app:boxCornerRadiusTopStart="12dp"
             app:endIconMode="password_toggle"
-            app:startIconDrawable="@drawable/baseline_lock_24px">
+            app:startIconDrawable="@drawable/baseline_lock_24px"
+
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeWidth="2dp"
+            app:boxStrokeColor="@color/input_outline"
+
+            app:hintTextColor="@android:color/white"
+            app:startIconTint="@android:color/white"
+            app:endIconTint="@android:color/white"
+            android:textColorHint="@android:color/white"
+            app:boxStrokeWidthFocused="2dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etConfirmarContraseña"
@@ -120,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:padding="12dp"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -128,29 +171,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Selecciona un rol:"
-            android:textSize="16sp"
             android:layout_marginTop="16dp"
+            android:text="Selecciona un rol:"
+            android:textColor="@color/white"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <RadioGroup
             android:id="@+id/radioGroupRoles"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/rbVendedor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vendedor" />
+                android:text="Vendedor"
+                android:textColor="@color/white"/>
 
             <RadioButton
                 android:id="@+id/rbAdministrador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Administrador" />
+                android:text="Administrador"
+                android:textColor="@color/white"/>
         </RadioGroup>
 
         <!-- Botón Registrar -->
@@ -158,13 +204,15 @@
             android:id="@+id/RegistrarUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/RegistrarUsuario"
-            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:fontFamily="@font/notoserif"
             android:textColor="@android:color/white"
-            android:textSize="16sp"
-            app:cornerRadius="12dp"
-            app:iconPadding="12dp" />
+            android:text="@string/Btn_Login"
+            android:background="@drawable/btn_login_background"
+            app:backgroundTint="@null"
+            app:rippleColor="@null" />
 
         <!-- Texto ya tengo cuenta -->
         <com.google.android.material.textview.MaterialTextView
@@ -177,7 +225,8 @@
             android:focusable="true"
             android:text="@string/TengounacuentaTXT"
             android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 

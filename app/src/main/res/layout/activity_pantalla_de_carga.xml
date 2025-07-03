@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_color_backgroud"
     tools:context=".Pantalla_De_Carga">
 
     <!-- Animación Lottie centrada -->
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/notoserif"
         android:text="Cargando Almacén..."
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA"
+    android:background="@drawable/gradient_color_backgroud"
     tools:context=".MenuPrincipal">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:gravity="center_horizontal">
+        android:padding="16dp">
 
         <!-- Card de bienvenida -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="8dp"
             app:strokeColor="#DDDDDD"
-            app:strokeWidth="1dp"
-            android:layout_marginBottom="16dp">
+            app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -33,14 +32,14 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:text="@string/BienvenidoPrincipal"
-                    android:fontFamily="@font/notoserif"
-                    android:textStyle="bold"
-                    android:textColor="#333333"
-                    android:textSize="22sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/notoserif"
+                    android:text="@string/BienvenidoPrincipal"
+                    android:textColor="#333333"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
 
                 <ProgressBar
                     android:id="@+id/progressBarDatos"
@@ -52,243 +51,286 @@
 
                 <TextView
                     android:id="@+id/NombrePrincipal"
-                    android:text="@string/NombrePrincipal"
-                    android:fontFamily="@font/notoserif"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:visibility="gone"/>
+                    android:fontFamily="@font/notoserif"
+                    android:text="@string/NombrePrincipal"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/CorreoPrinciapl"
-                    android:text="@string/CorreoPrinciapl"
-                    android:fontFamily="@font/notoserif"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
-                    android:visibility="gone"/>
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Card Categorías -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cdCategorias"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
-            app:strokeColor="#E0E0E0"
-            app:strokeWidth="1dp"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/categorias" />
-
-                <TextView
-                    android:text="@string/tvCategorias"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/notoserif"
+                    android:text="@string/CorreoPrinciapl"
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    android:layout_marginStart="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:visibility="gone" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Card Productos -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cdInventario"
+        <!-- Fila 1: Categorías y Inventario -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
-            app:strokeColor="#E0E0E0"
-            app:strokeWidth="1dp">
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- Card Categorías -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cdCategorias"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp">
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/inventario" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
 
-                <TextView
-                    android:text="@string/tvInventario"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:layout_marginStart="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/categorias" />
 
-        <!-- Card Proveedores -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cdProveedores"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/tvCategorias"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card Inventario -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cdInventario"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/inventario" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="@string/tvInventario"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Fila 2: Proveedores y Localización -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
-            app:strokeColor="#E0E0E0"
-            app:strokeWidth="1dp">
-            <LinearLayout
-                android:layout_width="match_parent"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Card Proveedores -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cdProveedores"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp">
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/proveedor" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
 
-                <TextView
-                    android:text="Proveedores"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:layout_marginStart="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <!-- Card Localizacion -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cdLocalizacion"
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/proveedor" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="Proveedores"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card Localización -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cdLocalizacion"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/localizacion_sedes" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="9dp"
+                        android:text="Localización"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Fila 3: Abastecimiento e Ingreso y Stock Mínimo -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
-            app:strokeColor="#E0E0E0"
-            app:strokeWidth="1dp">
-            <LinearLayout
-                android:layout_width="match_parent"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <!-- Card Abastecimiento e Ingreso -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cdAbastecimiento"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp">
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/localizacion_sedes" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
 
-                <TextView
-                    android:text="@string/tvLocalizacion"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:layout_marginStart="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <!-- Card Abastecimiento -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cdAbastecimiento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
-            app:strokeColor="#E0E0E0"
-            app:strokeWidth="1dp">
-            <LinearLayout
-                android:layout_width="match_parent"
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/abastecimiento" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:gravity="center"
+                        android:text="Abastecimiento\ne\nIngreso"
+                        android:textColor="#000000"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card Stock Mínimo -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cdStockMinimo"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp"
+                app:strokeColor="#E0E0E0"
+                app:strokeWidth="1dp">
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/abastecimiento" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="20dp">
 
-                <TextView
-                    android:text="@string/tvAbastecimiento"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:layout_marginStart="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/stockminimo" />
 
-        <!-- Card StockMinimo -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cdStockMinimo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="6dp"
-            app:strokeColor="#E0E0E0"
-            app:strokeWidth="1dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="20dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:gravity="center"
+                        android:text="Stock\nMínimo"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-                <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/stockminimo" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
 
-                <TextView
-                    android:text="@string/tvStockMinimo"
-                    android:textStyle="bold"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:layout_marginStart="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-        <!-- Card Traslado -->
+        <!-- Fila 4: Traslado -->
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cdTraslado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="16dp"
             app:cardCornerRadius="16dp"
             app:cardElevation="6dp"
             app:strokeColor="#E0E0E0"
             app:strokeWidth="1dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="20dp"
+                android:gravity="center_vertical"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:padding="20dp">
 
                 <ImageView
                     android:layout_width="32dp"
@@ -296,24 +338,32 @@
                     android:src="@drawable/traslado" />
 
                 <TextView
-                    android:text="@string/tvTraslado"
-                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="Traslado"
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    android:layout_marginStart="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:textStyle="bold" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
+
         <!-- Botón cerrar sesión -->
         <Button
             android:id="@+id/CerrarSesion"
-            android:text="@string/CerrarSesion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/design_default_color_primary"
+            android:layout_marginTop="80dp"
+            android:padding="12dp"
+            android:textSize="18dp"
+            android:text="@string/CerrarSesion"
             android:textColor="@android:color/white"
-            android:layout_marginTop="8dp"
-            android:padding="12dp" />
+
+            android:textStyle="bold"
+            android:fontFamily="@font/notoserif"
+            android:background="@drawable/btn_login_background"
+            app:backgroundTint="@null"
+            app:rippleColor="@null"/>
+
     </LinearLayout>
 </ScrollView>
