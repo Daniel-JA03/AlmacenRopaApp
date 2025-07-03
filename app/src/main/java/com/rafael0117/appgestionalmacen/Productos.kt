@@ -91,6 +91,12 @@ class Productos : AppCompatActivity() {
             coincideBusqueda && coincideEstado
         }
 
+        // Agrega este bloque para mostrar los productos filtrados en el Logcat
+        Log.d("Productos", "Productos a mostrar (${filtrados.size}):")
+        filtrados.forEach { producto ->
+            Log.d("Productos", producto.toString())
+        }
+
         rvProductos.adapter = ProductoAdapter(ArrayList(filtrados)) { producto ->
             val intent = Intent(this, EditarProducto::class.java)
             intent.putExtra("producto", producto)

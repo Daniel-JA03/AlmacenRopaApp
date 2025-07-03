@@ -153,6 +153,9 @@ class MenuPrincipal : AppCompatActivity() {
                             cdProveedores.visibility = View.GONE
                             cdLocalizacion.visibility = View.VISIBLE
                             cdAbastecimiento.visibility = View.GONE
+                            cdTraslado.visibility = View.GONE
+                            cdStockMinimo.visibility = View.GONE
+
 
 
                         }

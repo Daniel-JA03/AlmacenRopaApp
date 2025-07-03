@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Almacen Ropa</string>
+    <string name="app_name">Fashion Storage</string>
 
     <!--MAIN ACTIVITY-->
     <string name="Btn_Login">Login</string>

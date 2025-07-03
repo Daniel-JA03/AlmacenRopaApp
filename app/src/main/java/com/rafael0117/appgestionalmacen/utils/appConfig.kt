@@ -9,7 +9,7 @@ class appConfig:Application() {
         lateinit var CONTEXT:Context
         lateinit var BD:InitBD
         var BD_NAME="almacen.bd"
-        var VERSION=2
+        var VERSION=3
     }
     override fun onCreate() {
         super.onCreate()
