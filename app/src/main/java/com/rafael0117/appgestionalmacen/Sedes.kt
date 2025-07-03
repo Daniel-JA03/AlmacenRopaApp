@@ -9,6 +9,7 @@ import android.view.Gravity
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -177,21 +178,48 @@ class Sedes : AppCompatActivity() {
                     setPadding(0, 0, 16, 0)
                 }
 
-                val btnEditarUbicacion = Button(this).apply {
-                    text = "Editar"
-                    setBackgroundColor(Color.parseColor("#1E88E5"))
-                    setTextColor(Color.WHITE)
-                    textSize = 12f
+                // Botón compartir (solo ícono)
+                val btnCompartirUbicacion = ImageButton(this).apply {
+                    setImageResource(R.drawable.share_location)
+                    setBackgroundColor(Color.TRANSPARENT)
+                    setColorFilter(Color.parseColor("#4CAF50")) // verde
+                    layoutParams = LinearLayout.LayoutParams(100, 100).apply {
+                        marginEnd = 16
+                    }
+                    setOnClickListener {
+                        val mensaje = "Ubicación: ${ubicacion.descripcion}\n" +
+                                "Latitud: ${ubicacion.latitud}\n" +
+                                "Longitud: ${ubicacion.longitud}\n" +
+                                "https://www.google.com/maps/search/?api=1&query=${ubicacion.latitud},${ubicacion.longitud}"
+
+                        val intent = Intent(Intent.ACTION_SEND).apply {
+                            type = "text/plain"
+                            putExtra(Intent.EXTRA_SUBJECT, "Ubicación de la sede")
+                            putExtra(Intent.EXTRA_TEXT, mensaje)
+                        }
+                        startActivity(Intent.createChooser(intent, "Compartir ubicación con..."))
+                    }
+                }
+
+
+                // Botón editar (solo ícono)
+                val btnEditarUbicacion = ImageButton(this).apply {
+                    setImageResource(R.drawable.outline_edit_location_alt_24)
+                    setBackgroundColor(Color.TRANSPARENT)
+                    setColorFilter(Color.parseColor("#1E88E5")) // azul
+                    layoutParams = LinearLayout.LayoutParams(100, 100).apply {
+                        marginEnd = 16
+                    }
                     setOnClickListener {
                         mostrarDialogoEditarUbicacion(ubicacion)
                     }
                 }
 
-                val btnEliminarUbicacion = Button(this).apply {
-                    text = "Eliminar"
-                    setBackgroundColor(Color.parseColor("#D32F2F"))
-                    setTextColor(Color.WHITE)
-                    textSize = 12f
+                val btnEliminarUbicacion = ImageButton(this).apply {
+                    setImageResource(R.drawable.delete)
+                    setBackgroundColor(Color.TRANSPARENT)
+                    setColorFilter(Color.parseColor("#D32F2F")) // rojo
+                    layoutParams = LinearLayout.LayoutParams(100, 100)
                     setOnClickListener {
                         AlertDialog.Builder(this@Sedes)
                             .setTitle("Eliminar Ubicación")
@@ -200,7 +228,7 @@ class Sedes : AppCompatActivity() {
                                 val resultado = SedeController().eliminarUbicacion(ubicacion.codigo)
                                 if (resultado > 0) {
                                     Toast.makeText(this@Sedes, "Ubicación eliminada", Toast.LENGTH_SHORT).show()
-                                    mostrarDialogoEditarSede(sede) // Recargar diálogo
+                                    mostrarDialogoEditarSede(sede)
                                 } else {
                                     Toast.makeText(this@Sedes, "Error al eliminar la ubicación", Toast.LENGTH_SHORT).show()
                                 }
@@ -213,6 +241,7 @@ class Sedes : AppCompatActivity() {
                 ubicacionContainer.addView(txtDescripcionUbicacion)
                 ubicacionContainer.addView(btnEditarUbicacion)
                 ubicacionContainer.addView(btnEliminarUbicacion)
+                ubicacionContainer.addView(btnCompartirUbicacion)
 
                 ubicacionesLayout.addView(ubicacionContainer)
             }
