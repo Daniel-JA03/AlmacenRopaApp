@@ -10,4 +10,10 @@
     <color name="colorOnBackground">#1F1F1F</color>    <!-- Texto sobre fondo blanco -->
 
     <color name="colorCardStroke">#E0E0E0</color>      <!-- Bordes de las tarjetas -->
+
+    <color name="main_background">#19191b</color>
+    <color name="pink">#e45eb0</color>
+    <color name="green">#34e3c4</color>
+    <color name="btn_primary">#4db8ff</color> <!-- Celeste moderno -->
+    <color name="btn_secundary">#6d6ba8</color>
 </resources>
